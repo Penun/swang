@@ -30,7 +30,7 @@
 }
 
 .th_head {
-	background-image: url("/assets/img/light_underline_high.png");
+	background-image: url("/static/img/light_underline_high.png");
 	background-size: 100% 100%;
 	align-self: stretch;
 }
@@ -58,7 +58,7 @@
 .th_item {
     display: grid;
     grid-template-columns: 30% repeat(6, 3%) repeat(3, 1fr);
-    background-image: url("/assets/img/light_underline.png");
+    background-image: url("/static/img/light_underline.png");
 	background-size: 105% 20%;
     background-repeat: no-repeat;
 	background-position: bottom center;
@@ -66,7 +66,7 @@
 
 .th_item:hover {
 	cursor: pointer;
-	background-image: url("/assets/img/light_underline_high.png");
+	background-image: url("/static/img/light_underline_high.png");
 	background-size: 100% 100%;
 	color: #293c56;
 	font-weight: 200;
@@ -139,7 +139,7 @@ img.detail_img {
 }
 
 .sw_back_s {
-	background-image: url("/assets/img/sw_back_s.png");
+	background-image: url("/static/img/sw_back_s.png");
     background-size: 100% 100%;
 	background-repeat: no-repeat;
 }

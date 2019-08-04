@@ -1,6 +1,6 @@
 body {
     display: grid;
-    background-image: url("/assets/img/starscape.png");
+    background-image: url("/static/img/starscape.png");
 	background-size: 100% 100%;
 	background-repeat: round;
 	color: #a4dde5;
@@ -13,7 +13,7 @@ body {
 }
 
 .sw_back {
-	background-image: url("/assets/img/sw_back.png");
+	background-image: url("/static/img/sw_back.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
