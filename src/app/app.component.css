@@ -1,0 +1,37 @@
+.mainDiv {
+    transform: rotateX(5deg);
+    -moz-transform: rotateX(5deg);
+    -webkit-transform:rotateX(5deg);
+}
+
+.tab_header {
+	position: absolute;
+	top: -1vh;
+	z-index: -2;
+	font-size: 3vmin;
+	transition: all 500ms ease;
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	padding: 1vh 2vw 1vh 2vw;
+	margin-left: 3vw;
+}
+
+.tab_header:hover {
+	-ms-transform: translate(0, -1.25em); /* IE 9 */
+    -webkit-transform: translate(0, -1.25em); /* Safari */
+    transform: translate(0, -1.25em);
+}
+
+.tab {
+	background-image: url("/assets/img/light_underline.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100%;
+	cursor: pointer;
+	text-align: center;
+}
+
+.tab:hover {
+	background-image: url("/assets/img/light_underline_high.png");
+	color: #293c56;
+}
