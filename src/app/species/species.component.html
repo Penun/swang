@@ -30,7 +30,7 @@
             </div>
         </div>
         <div *ngIf="curSpec" class="speciesMain sw_back_s fade_in">
-            <div class="speciesImg speciesInner sw_back_s">
+            <div class="speciesImg sw_back_s">
                 <img class="detail_img" src="/static/img/species/{{curSpec.img_name}}" alt="" />
                 <button type="button" (click)="closePanel()" class="closeButton">X</button>
             </div>
@@ -39,30 +39,38 @@
                 <span class="gridRow gridCol alCenter th_name headerColor">{{curSpec.name}}</span>
                 <div class="characterBlock gridCol gridRow2 alCenter">
                     <span></span>
-                    <span><b>Br</b></span>
-                    <span><b>Ag</b></span>
-                    <span><b>In</b></span>
-                    <span><b>Cu</b></span>
-                    <span><b>Wi</b></span>
-                    <span><b>Pr</b></span>
+                    <span class="th_head gridRow gridCol2"></span>
+                    <span class="headerColor gridRow gridCol2 charCharGrid">
+                        <span><b>Br</b></span>
+                        <span><b>Ag</b></span>
+                        <span><b>In</b></span>
+                        <span><b>Cu</b></span>
+                        <span><b>Wi</b></span>
+                        <span><b>Pr</b></span>
+                    </span>
                     <span></span>
                     <span></span>
-                    <span>{{curSpec.brawn}}</span>
-                    <span>{{curSpec.agility}}</span>
-                    <span>{{curSpec.intellect}}</span>
-                    <span>{{curSpec.cunning}}</span>
-                    <span>{{curSpec.willpower}}</span>
-                    <span>{{curSpec.presence}}</span>
+                    <span class="charCharGrid">
+                        <span>{{curSpec.brawn}}</span>
+                        <span>{{curSpec.agility}}</span>
+                        <span>{{curSpec.intellect}}</span>
+                        <span>{{curSpec.cunning}}</span>
+                        <span>{{curSpec.willpower}}</span>
+                        <span>{{curSpec.presence}}</span>
+                    </span>
                     <span></span>
                 </div>
-                <div class="gridCol gridRow3 tp_midRow">
-                    <span><b>Wound Threshold:</b> {{curSpec.wound_threshold}} + Brawn</span>
+                <div class="gridCol gridRow3 tp_midRow ">
+                    <span class="headerColor th_head tp_midInner"><b>Wound Threshold:</b></span>
+                    <span>{{curSpec.wound_threshold}} + Brawn</span>
                 </div>
-                <div class="gridCol gridRow4 tp_midRow">
-                    <span><b>Strain Threshold:</b> {{curSpec.strain_threshold}} + Willpower</span>
+                <div class="gridCol gridRow4 tp_midRow ">
+                    <span class="headerColor th_head tp_midInner"><b>Strain Threshold:</b></span>
+                    <span>{{curSpec.strain_threshold}} + Willpower</span>
                 </div>
-                <div class="gridCol gridRow5 tp_midRow">
-                    <b>Starting XP:</b> {{curSpec.starting_xp}}
+                <div class="gridCol gridRow5 tp_midRow ">
+                    <span class="headerColor th_head tp_midInner"><b>Starting XP:</b></span>
+                    <span>{{curSpec.starting_xp}} xp</span>
                 </div>
                 <div class="gridRow6 alStretch">
                     <ul class="tp_specAbil">
