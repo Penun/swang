@@ -56,27 +56,27 @@
                     </span>
                     <span></span>
                 </div>
-                <div class="gridCol gridRow3 tp_midRow ">
+                <div class="gridCol gridRow3 tp_midRow">
                     <span class="headerColor th_head tp_midInner"><b>Wound Threshold:</b></span>
                     <span>{{curSpec.wound_threshold}} + Brawn</span>
                 </div>
-                <div class="gridCol gridRow4 tp_midRow ">
+                <div class="gridCol gridRow4 tp_midRow">
                     <span class="headerColor th_head tp_midInner"><b>Strain Threshold:</b></span>
                     <span>{{curSpec.strain_threshold}} + Willpower</span>
                 </div>
-                <div class="gridCol gridRow5 tp_midRow ">
+                <div class="gridCol gridRow5 tp_midRow">
                     <span class="headerColor th_head tp_midInner"><b>Starting XP:</b></span>
                     <span>{{curSpec.starting_xp}} xp</span>
                 </div>
                 <div class="gridRow6 alStretch">
                     <ul class="tp_specAbil">
                         <li *ngFor="let attrib of curSpec.attributes">
-                            <span class="taleDesc">{{attrib.description}}</span>
+                            <span class="taleDesc" [innerHtml]="attrib.description"></span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="speciesImg sw_back_s">
+            <div class="speciesImg sw_back_op">
                 <img class="detail_img" src="/assets/img/species/{{curSpec.img_name}}" alt="" />
                 <button type="button" (click)="closePanel()" class="closeButton">X</button>
             </div>
