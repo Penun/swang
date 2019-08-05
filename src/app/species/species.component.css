@@ -171,6 +171,7 @@ img.detail_img {
 .speciesDet {
 	height: 95%;
 	width: 95%;
+	overflow-y: auto;
 	grid-column: 1;
 	grid-row: 1;
 	display: grid;
