@@ -93,7 +93,7 @@ img.detail_img {
 	width: auto;
 	max-width: 95%;
 	height: auto;
-	max-height: 95%;
+	max-height: 83vh;
 	grid-row: 1;
 	grid-column: 1;
 	justify-self: center;
@@ -104,9 +104,15 @@ img.detail_img {
 	font-size: 1.3em;
 	display: grid;
 	grid-template-rows: auto auto;
-	grid-template-columns: 5vw repeat(6, 1fr) 5vw;
+	grid-template-columns: 5vw auto 5vw;
 	align-items: center;
 	grid-row-gap: 1vh;
+}
+
+.charCharGrid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: 1fr;
 }
 
 .tp_spanCol {
@@ -123,6 +129,12 @@ img.detail_img {
 .tp_midRow {
 	padding-left: 3vw;
 	font-size: 1.35em;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.tp_midInner {
+	margin-right: 1vmin;
 }
 
 .tp_specAbil > li {
@@ -148,7 +160,7 @@ img.detail_img {
 	grid-row: 1 / 3;
 	grid-column: 1;
 	z-index: 150;
-	height: 100%;
+	height: 96vh;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
@@ -156,12 +168,9 @@ img.detail_img {
 	align-items: center;
 }
 
-.speciesInner {
+.speciesDet {
 	height: 95%;
 	width: 95%;
-}
-
-.speciesDet {
 	grid-column: 1;
 	grid-row: 1;
 	display: grid;
@@ -171,6 +180,8 @@ img.detail_img {
 }
 
 .speciesImg {
+	height: 100%;
+	width: 100%;
 	grid-column: 2;
 	grid-row: 1;
 	display: grid;
