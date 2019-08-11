@@ -73,7 +73,7 @@
                 <div class="gridRow6 alStretch">
                     <ul class="tp_specAbil">
                         <li *ngFor="let attrib of curSpec.attributes">
-                            <span class="taleDesc" [innerHtml]="attrib.description"></span>
+                            <span class="attrib_desc" [innerHtml]="attrib.description | safeHtml"></span>
                         </li>
                     </ul>
                 </div>

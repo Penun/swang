@@ -6,10 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpeciesComponent } from './species/species.component';
 
+import { SafeHtmlPipe } from './species/species.attribute.image.safe.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
-    SpeciesComponent
+    SpeciesComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
