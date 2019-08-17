@@ -1,25 +1,42 @@
 .mainDiv {
-    transform: rotateX(5deg);
+    /* transform: rotateX(5deg);
     -moz-transform: rotateX(5deg);
-    -webkit-transform:rotateX(5deg);
+    -webkit-transform:rotateX(5deg); */
+}
+
+.menu_wrapper {
+	position: absolute;
+	top: 2.5vh;
+	margin-left: 3vw;
+	height: 4vh;
+	font-size: 3vmin;
+	display: flex;
 }
 
 .tab_header {
-	position: absolute;
-	top: -1vh;
-	z-index: -2;
-	font-size: 3vmin;
 	transition: all 500ms ease;
 	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
-	padding: 1vh 2vw 1vh 2vw;
-	margin-left: 3vw;
+	-o-transition:width 500ms ease;
+	display: flex;
+	width: auto;
+	justify-content: space-evenly;
 }
 
-.tab_header:hover {
-	-ms-transform: translate(0, -1.25em); /* IE 9 */
-    -webkit-transform: translate(0, -1.25em); /* Safari */
+/* .tab_header:hover {
+	-ms-transform: translate(0, -1.25em);
+    -webkit-transform: translate(0, -1.25em);
     transform: translate(0, -1.25em);
+} */
+
+.menu_tab {
+	cursor: pointer;
+	text-align: center;
+	padding: 0 1vw 0 1vw;
+}
+
+.menu_index {
+	z-index: 200;
 }
 
 .tab {
@@ -29,9 +46,39 @@
 	background-size: 100%;
 	cursor: pointer;
 	text-align: center;
+	margin: 0 1vw 0 1vw;
 }
 
 .tab:hover {
 	background-image: url("/assets/img/light_underline_high.png");
 	color: #293c56;
+}
+
+.menu_arrow {
+	max-height: 3vh;
+}
+
+.menu_arrow_l {
+	-ms-transform: rotateZ(-17.1deg);
+    -webkit-transform: rotateZ(-17.1deg);
+    transform: rotateZ(-17.1deg);
+}
+
+.menu_arrow_r {
+	-ms-transform: rotateZ(17.1deg);
+    -webkit-transform: rotateZ(17.1deg);
+    transform: rotateZ(17.1deg);
+}
+
+.hide {
+    display: none;
+}
+
+.fade_in {
+	animation-name: fade_in;
+	animation-duration: 1750ms;
+	-webkit-animation-name: fade_in;
+	-webkit-animation-duration: 1750ms;
+	-moz-animation-name: fade_in;
+	-moz-animation-duration: 1750ms;
 }
