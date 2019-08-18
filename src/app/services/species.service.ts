@@ -17,7 +17,8 @@ export class SpeciesService {
     private speciesUrl: string = '/species';
 
     constructor(
-        private unit: UnitService) { }
+        private unit: UnitService
+    ) { }
 
     getSpecies(): Observable<Species[]> {
         this.unit.log("Spec Serv :: Species Began");

@@ -52,6 +52,7 @@
 .tab:hover {
 	background-image: url("/assets/img/light_underline_high.png");
 	color: #293c56;
+	background-size: 100% 100%;
 }
 
 .menu_arrow {
@@ -72,6 +73,10 @@
 
 .hide {
     display: none;
+}
+
+.hide_m {
+	display: none;
 }
 
 .fade_in {
