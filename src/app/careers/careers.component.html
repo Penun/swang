@@ -1,26 +1,26 @@
 <div class="sixty_he fade_in">
     <div class="tripPage">
-        <div class="gridCol fade_in oThirdLCol colHigh">
-            <h2 class="gridRow h2">Careers</h2>
-            <div class="gridRow2 innerCol">
+        <div class="gridCol fade_in pageGrid">
+            <span class="gridRow2 h2"><b>Careers</b></span>
+            <div class="gridRow3 innerCol">
                 <span *ngFor="let care of careers" (click)="revealCareer(care)" class="clickable alCenter">
                     {{care.name}}
 	            </span>
             </div>
         </div>
-        <div class="gridCol2 fade_in oThirdMCol colHigh" *ngIf="curCar && curCar.specializations">
+        <div class="gridCol2 fade_in pageGrid" *ngIf="curCar && curCar.specializations">
             <!-- <div class="mobOnly"><h3>{{"{{curCar.name}}"}}</h3><button type="button" ng-click="mCont.BackToLeftCar()" class="closeButton">Back</button></div> -->
-            <h2 class="gridRow h2">Specializations</h2>
-            <div class="gridRow2 innerCol">
+            <span class="gridRow2 h2"><b>Specializations</b></span>
+            <div class="gridRow3 innerCol">
                 <span *ngFor="let spec of curCar.specializations" (click)="revealSpecialization(spec)" class="clickable alCenter">
                     {{spec.name}}
                 </span>
             </div>
         </div>
-        <div class="gridCol3 right_col fade_in" id="right_col" *ngIf="curCar">
+        <div class="gridCol3 right_col pageGrid fade_in" *ngIf="curCar">
             <!-- <div class="mobOnly"><button type="button" ng-click="mCont.BackToMidCar()" class="closeButton">Back</button></div> -->
-            <div>
-                <h2 class="h2">{{curCar.name}}</h2>
+            <div class="gridRow2">
+                <span class="h2"><b>{{curCar.name}}</b></span>
                 <p>Skill Proficiencies: {{curCar.skill_slots}}</p>
                 <div class="skillDiv">
                     <span *ngFor="let skill of curCar.skills" class="skill">
@@ -28,15 +28,15 @@
                     </span>
                 </div>
             </div>
-            <div class="fade_in" *ngIf="curSpecial">
-                <h2>{{curSpecial.name}}</h2>
+            <div class="fade_in gridRow3 specialGrid" *ngIf="curSpecial">
+                <span class="h2"><b>{{curSpecial.name}}</b></span>
                 <p>Skill Proficiencies: {{curSpecial.skill_slots}}</p>
                 <div class="skillDiv">
                     <span *ngFor="let skill of curSpecial.skills" class="skill">
                         <i>{{skills[skill].name}}</i>
                     </span>
                 </div>
-                <h2 class="h2">Talent Tree</h2>
+                <span class="h2"><b>Talent Tree</b></span>
                 <div class="specialWrap">
                     <div class="talent sw_back gridCol gridRow" (click)="revealTalent(curSpecial.talents[0])">{{curSpecial.talents[0].name}}</div>
                     <div class="conn gridCol2 gridRow"><img src="/assets/img/connector.png" [ngStyle]="curSpecial.talents[0].disp_right" alt="Conn"/></div>
