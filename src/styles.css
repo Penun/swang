@@ -18,6 +18,12 @@ body {
 	background-repeat: no-repeat;
 }
 
+.sw_back_s {
+	background-image: url("/assets/img/sw_back_s.png");
+    background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
 .page {
 	z-index: 0;
 	display: grid;

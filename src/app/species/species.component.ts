@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { SpeciesService } from '../services/species.service';
 import { UnitService } from '../services/unit.service';
+import { SpeciesService } from '../services/species.service';
 
 import { Species } from '../object-types/species';
 
@@ -34,7 +34,7 @@ export class SpeciesComponent implements OnInit {
                 .subscribe(attributes => spec.attributes = attributes);
         }
         this.curSpec = spec;
-    };
+    }
 
     closePanel(): void {
         this.curSpec = null;

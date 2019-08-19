@@ -1,15 +1,17 @@
 <div class="mainDiv">
-    <div class="tab_header sw_back" id="tabHeader">
-        <span class="tab" routerLink="/species">Species</span>
-        <span class="tab" ng-click="mCont.LoadTab(2)">Careers</span>
-        <span class="tab" ng-click="mCont.LoadTab(3)">Weapons</span>
-        <span class="tab" ng-click="mCont.LoadTab(4)">Armor</span>
-    </div>
     <div class="page sw_back">
+        <div class="menu_wrapper">
+            <div class="tab_header sw_back menu_tab menu_index" (click)="toggleMenu()" (mouseenter)="darkArrow()" (mouseleave)="lightArrow()">
+                <img src="/assets/img/{{menuArrow}}" alt="^" [@rotateLeft]="menuStatus ? 'left' : 'vertical'" class="menu_arrow" />
+                <img src="/assets/img/{{menuArrow}}" alt="^" [ngClass]="{hide_m: menuStatus}" class="menu_arrow menu_arrow_r fade_in" />
+            </div>
+            <div class="tab_header sw_back menu_index" [@openClose]="menuStatus ? 'true' : 'false'">
+                <span class="tab fade_in" routerLink="/" routerLinkActive="hide" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{hide_m: !menuStatus}" (click)="toggleMenu()">Species</span>
+                <span class="tab fade_in" routerLink="/careers" routerLinkActive="hide" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{hide_m: !menuStatus}" (click)="toggleMenu()">Careers</span>
+                <span class="tab fade_in" routerLinkActive="hide" [ngClass]="{hide_m: !menuStatus}">Weapons</span>
+                <span class="tab fade_in" routerLinkActive="hide" [ngClass]="{hide_m: !menuStatus}">Armor</span>
+            </div>
+        </div>
         <router-outlet></router-outlet>
-        <!-- {{template "species.tpl"}}
-        {{template "careers.tpl"}}
-        {{template "weapons.tpl"}}
-        {{template "armor.tpl"}} -->
     </div>
 </div>
