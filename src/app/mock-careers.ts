@@ -84,28 +84,28 @@ export const TALETHREE: Talent[] = [
 ];
 
 export const SPECONE: Specialization[] = [
-    {id: 1, name: 'Pock', subtitle: 'Penis', skill_slots: 2, skills: [1, 2, 3, 4], talents: TALEONE},
-    {id: 2, name: 'Tock', subtitle: 'Tenis', skill_slots: 2, skills: [5, 7, 2, 1], talents: TALETWO},
-    {id: 3, name: 'Mock', subtitle: 'Menis', skill_slots: 2, skills: [7, 0, 3, 4], talents: TALETHREE}
+    {id: 1, name: 'Pock', subtitle: 'Penis', skill_slots: 2, skills: SKILLS, talents: TALEONE},
+    {id: 2, name: 'Tock', subtitle: 'Tenis', skill_slots: 2, skills: SKILLS, talents: TALETWO},
+    {id: 3, name: 'Mock', subtitle: 'Menis', skill_slots: 2, skills: SKILLS, talents: TALETHREE}
 ];
 
 export const SPECTWO: Specialization[] = [
-    {id: 4, name: 'Hala', subtitle: 'Halo', skill_slots: 2, skills: [4, 3, 2, 1], talents: TALETHREE},
-    {id: 5, name: 'Mala', subtitle: 'Malo', skill_slots: 2, skills: [3, 6, 0, 7], talents: TALETWO},
-    {id: 6, name: 'Fala', subtitle: 'Falo', skill_slots: 2, skills: [5, 2, 3, 0], talents: TALEONE}
+    {id: 4, name: 'Hala', subtitle: 'Halo', skill_slots: 2, skills: SKILLS, talents: TALETHREE},
+    {id: 5, name: 'Mala', subtitle: 'Malo', skill_slots: 2, skills: SKILLS, talents: TALETWO},
+    {id: 6, name: 'Fala', subtitle: 'Falo', skill_slots: 2, skills: SKILLS, talents: TALEONE}
 ];
 
 export const SPECTHREE: Specialization[] = [
-    {id: 7, name: 'Boing', subtitle: 'Butt', skill_slots: 2, skills: [0, 6, 2, 4], talents: TALETWO},
-    {id: 8, name: 'Doing', subtitle: 'Dutt', skill_slots: 2, skills: [1, 7, 5, 3], talents: TALEONE},
-    {id: 9, name: 'Joing', subtitle: '', skill_slots: 2, skills: [1, 2, 7, 0], talents: TALETHREE}
+    {id: 7, name: 'Boing', subtitle: 'Butt', skill_slots: 2, skills: SKILLS, talents: TALETWO},
+    {id: 8, name: 'Doing', subtitle: 'Dutt', skill_slots: 2, skills: SKILLS, talents: TALEONE},
+    {id: 9, name: 'Joing', subtitle: '', skill_slots: 2, skills: SKILLS, talents: TALETHREE}
 ];
 
 export const CAREERS: Career[] = [
-    {id: 1, name: 'Killer', skill_slots: 4, skills: [1, 2, 3, 4], specializations: SPECONE},
-    {id: 2, name: 'Lover', skill_slots: 3, skills: [4, 3, 2, 1], specializations: SPECTWO},
-    {id: 3, name: 'Liar', skill_slots: 4, skills: [5, 6, 7, 0], specializations: SPECTHREE},
-    {id: 4, name: 'Maker', skill_slots: 3, skills: [0, 7, 6, 5], specializations: SPECTHREE},
-    {id: 5, name: 'Fixer', skill_slots: 4, skills: [1, 3, 5, 7], specializations: SPECTWO},
-    {id: 6, name: 'Hunter', skill_slots: 3, skills: [2, 4, 6, 0], specializations: SPECONE}
+    {id: 1, name: 'Killer', skill_slots: 4, skills: SKILLS, specializations: SPECONE},
+    {id: 2, name: 'Lover', skill_slots: 3, skills: SKILLS, specializations: SPECTWO},
+    {id: 3, name: 'Liar', skill_slots: 4, skills: SKILLS, specializations: SPECTHREE},
+    {id: 4, name: 'Maker', skill_slots: 3, skills: SKILLS, specializations: SPECTHREE},
+    {id: 5, name: 'Fixer', skill_slots: 4, skills: SKILLS, specializations: SPECTWO},
+    {id: 6, name: 'Hunter', skill_slots: 3, skills: SKILLS, specializations: SPECONE}
 ];

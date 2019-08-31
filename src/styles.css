@@ -19,7 +19,7 @@ body {
 }
 
 .sw_back_s {
-	background-image: url("/assets/img/sw_back_s.png");
+	background-image: url("/static/img/sw_back_s.png");
     background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
@@ -85,7 +85,7 @@ li {
 }
 
 .clickable {
-	background-image: url("/assets/img/light_underline.png");
+	background-image: url("/static/img/light_underline.png");
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: 100% 10%;
@@ -95,7 +95,7 @@ li {
 }
 
 .clickable:hover {
-	background-image: url("/assets/img/light_underline_high.png");
+	background-image: url("/static/img/light_underline_high.png");
 	background-size: 100% 100%;
 	color: #293c56;
 	font-weight: 200;

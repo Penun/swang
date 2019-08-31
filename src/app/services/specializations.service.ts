@@ -6,36 +6,31 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { UnitService } from './unit.service';
 
-import { Career } from '../object-types/career';
-import { Skill } from '../object-types/skill';
-
-import { CAREERS } from '../mock-careers';
+import { Specialization } from '../object-types/specialization';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class CareersService {
+export class SpecializationsService {
 
-    private careerUrl: string;
     private carSpecUrl: string;
 
     constructor(
         private unit: UnitService,
         private http: HttpClient
     ) {
-        this.careerUrl = '/careers_d';
         this.carSpecUrl = '/careers/specializations';
     }
 
-    getCareers(): Observable<Career[]> {
-        this.unit.log("Career Serv :: Careers Began");
-        return this.http.get<Career[]>(this.careerUrl).pipe(
-            tap(_ => this.unit.log('Career Serv :: Careers Gotten')),
-            catchError(this.handleError('getCareers', []))
+    getCareerSpecs(id: number): Observable<Specialization[]> {
+        this.unit.log("special Serv :: Specializations Began");
+        return this.http.post<Specialization[]>(this.carSpecUrl, {id: id}, httpOptions).pipe(
+            tap(_ => this.unit.log("Special Serv :: Spec Gotten")),
+            catchError(this.handleError<Specialization[]>('getCareerSpecs'))
         );
     }
 

@@ -17,15 +17,16 @@ const httpOptions = {
 })
 export class SpeciesService {
 
-    private speciesUrl: string = '/species';
-    private specAttrUrl: string = '/species/attributes';
-
-    private species: Species[];
+    private speciesUrl: string;
+    private specAttrUrl: string;
 
     constructor(
         private unit: UnitService,
         private http: HttpClient
-    ) { }
+    ) {
+        this.speciesUrl = '/species';
+        this.specAttrUrl = '/species/attributes';
+    }
 
     getSpecies(): Observable<Species[]> {
         this.unit.log("Spec Serv :: Species Began");

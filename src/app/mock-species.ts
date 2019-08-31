@@ -23,7 +23,7 @@ export const SPECATTRS: SpeAttribute[] = [
     { id: 16, description: 'Rubb description'},
     { id: 16, description: 'Rubb description'},
     { id: 16, description: 'Rubb description'},
-    { id: 17, description: 'Dynam description. <img src="/assets/img/success.png" style="max-height: 3vmin;" />'},
+    { id: 17, description: 'Dynam description. <img src="/static/img/success.png" style="max-height: 3vmin;" />'},
     { id: 18, description: 'Dr sad description'},
     { id: 19, description: 'Magn description'},
     { id: 19, description: 'Magn description'},
