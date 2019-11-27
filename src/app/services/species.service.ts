@@ -24,7 +24,7 @@ export class SpeciesService {
         private unit: UnitService,
         private http: HttpClient
     ) {
-        this.speciesUrl = '/species';
+        this.speciesUrl = '/species/list';
         this.specAttrUrl = '/species/attributes';
     }
 
