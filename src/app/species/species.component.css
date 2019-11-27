@@ -146,6 +146,7 @@ img.detail_img {
 .attrib_desc {
 	font-size: 3vmin;
 	word-wrap: break-word;
+	text-align: left;
 }
 
 .alStretch {
