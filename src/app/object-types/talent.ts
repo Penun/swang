@@ -4,4 +4,6 @@ export class Talent {
     type: string;
     ranked: boolean;
     description: string;
+    right: boolean;
+    down: boolean;
 }
