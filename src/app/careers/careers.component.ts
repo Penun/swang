@@ -4,6 +4,7 @@ import { UnitService } from '../services/unit.service';
 import { CareersService } from '../services/careers.service';
 import { SkillsService } from '../services/skills.service';
 import { SpecializationsService } from '../services/specializations.service';
+import { TalentsService } from '../services/talents.service';
 
 import { Career } from '../object-types/career';
 import { Skill } from '../object-types/skill';
@@ -27,7 +28,8 @@ export class CareersComponent implements OnInit {
         private unit: UnitService,
         private careerServ: CareersService,
         private skillServ: SkillsService,
-        private specialServ: SpecializationsService
+        private specialServ: SpecializationsService,
+        private talentServ: TalentsService
     ) { }
 
     ngOnInit() {
@@ -58,8 +60,8 @@ export class CareersComponent implements OnInit {
                 .subscribe(skills => spec.skills = skills);
         }
         if (spec.talents == null){
-            // this.talentsServ.getSpecTalents(spec.id)
-            //     .subscribe(talents => spec.talents = talents);
+             this.talentServ.getSpecTalents(spec.id)
+                 .subscribe(talents => spec.talents = talents);
         }
         this.curSpecial = spec;
         this.curTale = null;

@@ -9,8 +9,6 @@ import { UnitService } from './unit.service';
 import { Career } from '../object-types/career';
 import { Skill } from '../object-types/skill';
 
-import { CAREERS } from '../mock-careers';
-
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };

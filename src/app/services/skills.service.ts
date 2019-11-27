@@ -8,8 +8,6 @@ import { UnitService } from './unit.service';
 
 import { Skill } from '../object-types/skill';
 
-import { SKILLS } from '../mock-careers';
-
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
