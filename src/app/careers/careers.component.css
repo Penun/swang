@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: 16% 16% 1fr;
 	height: 95vh;
-	word-break: break-all;
+	word-break: break-word;
 	padding-top: 2.5vh;
 }
 
@@ -100,7 +100,7 @@
 	display: grid;
 	grid-template-columns: 1fr 10vw;
 	grid-row-gap: 1vh;
-	padding: 3vh 1vw 0 1vw;
+	padding: 3vh 2vw 0 2vw;
 	max-height: 95%;
 }
 
@@ -112,4 +112,8 @@
 .taleDesc {
 	white-space: pre-line;
 	font-size: 2.25vmin;
+}
+
+.tp_spanCol {
+	grid-column: 1 / 3;
 }
