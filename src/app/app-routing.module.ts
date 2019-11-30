@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SpeciesComponent } from './species/species.component';
 import { CareersComponent } from './careers/careers.component';
+import { CharactersComponent } from './characters/characters.component';
 
 const routes: Routes = [
-    { path: 'species', redirectTo: '', pathMatch: "full" },
     { path: '', component: SpeciesComponent },
-    { path: 'careers', component: CareersComponent }
+    { path: 'species', redirectTo: '', pathMatch: "full" },
+    { path: 'careers', component: CareersComponent },
+    { path: 'characters', component: CharactersComponent }
 ];
 
 @NgModule({

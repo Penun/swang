@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { UnitService } from '../services/unit.service';
 import { CareersService } from '../services/careers.service';
 import { SkillsService } from '../services/skills.service';
-import { SpecializationsService } from '../services/specializations.service';
-import { TalentsService } from '../services/talents.service';
 
 import { Career } from '../object-types/career';
 import { Skill } from '../object-types/skill';
@@ -27,26 +25,22 @@ export class CareersComponent implements OnInit {
     constructor(
         private unit: UnitService,
         private careerServ: CareersService,
-        private skillServ: SkillsService,
-        private specialServ: SpecializationsService,
-        private talentServ: TalentsService
+        private skilServ: SkillsService
     ) { }
 
     ngOnInit() {
         this.unit.log("Career Component :: Init");
         this.careerServ.getCareers()
             .subscribe(careers => this.careers = careers);
+        this.skilServ.getSkills()
+            .subscribe(skills => this.skills = skills);
     }
 
     revealCareer(car: Career): void {
         this.unit.log(`Career Comp :: revealing career :: ${car.name}`);
         if (car.specializations == null){
-            this.specialServ.getCareerSpecs(car.id)
+            this.careerServ.getSpecializations(car.id)
                 .subscribe(specializations => car.specializations = specializations);
-        }
-        if (car.skills == null){
-            this.skillServ.getCareerSkills(car.id)
-                .subscribe(skills => car.skills = skills);
         }
         this.curCar = car;
         this.curSpecial = null;
@@ -55,14 +49,6 @@ export class CareersComponent implements OnInit {
 
     revealSpecialization(spec: Specialization): void {
         this.unit.log(`Career Comp :: revealing specialization :: ${spec.name}`);
-        if (spec.skills == null){
-            this.skillServ.getSpecSkills(spec.id)
-                .subscribe(skills => spec.skills = skills);
-        }
-        if (spec.talents == null){
-             this.talentServ.getSpecTalents(spec.id)
-                 .subscribe(talents => spec.talents = talents);
-        }
         this.curSpecial = spec;
         this.curTale = null;
     }

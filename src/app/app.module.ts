@@ -10,13 +10,15 @@ import { SpeciesComponent } from './species/species.component';
 import { CareersComponent } from './careers/careers.component';
 
 import { SafeHtmlPipe } from './species/species.attribute.image.safe.pipe';
+import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpeciesComponent,
     SafeHtmlPipe,
-    CareersComponent
+    CareersComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,
