@@ -1,23 +1,23 @@
 <div class="sixty_he fade_in">
     <div class="tripPage">
-        <div class="gridCol fade_in pageGrid">
+        <div class="gridCol fade_in gridList">
             <span class="gridRow2 h2"><b>Careers</b></span>
-            <div class="gridRow3 innerCol">
+            <div class="gridRow3 innerList">
                 <span *ngFor="let care of careers" (click)="revealCareer(care)" class="clickable alCenter">
                     {{care.name}}
 	            </span>
             </div>
         </div>
-        <div class="gridCol2 fade_in pageGrid" *ngIf="curCar && curCar.specializations">
+        <div class="gridCol2 fade_in gridList" *ngIf="curCar && curCar.specializations">
             <!-- <div class="mobOnly"><h3>{{"{{curCar.name}}"}}</h3><button type="button" ng-click="mCont.BackToLeftCar()" class="closeButton">Back</button></div> -->
             <span class="gridRow2 h2"><b>Specializations</b></span>
-            <div class="gridRow3 innerCol">
+            <div class="gridRow3 innerList">
                 <span *ngFor="let spec of curCar.specializations" (click)="revealSpecialization(spec)" class="clickable alCenter">
                     {{spec.name}}
                 </span>
             </div>
         </div>
-        <div class="gridCol3 right_col pageGrid fade_in" *ngIf="curCar">
+        <div class="gridCol3 right_col gridList fade_in" *ngIf="curCar">
             <!-- <div class="mobOnly"><button type="button" ng-click="mCont.BackToMidCar()" class="closeButton">Back</button></div> -->
             <div class="gridRow2">
                 <span class="h2"><b>{{curCar.name}}</b></span>

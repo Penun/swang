@@ -1,9 +1,13 @@
 import { Species } from './species';
+import { Career } from './career';
 
 export class Character {
 	id: number;
 	name: string;
     species: Species;
+	career: Career;
+	total_xp: number;
+	spent_xp: number;
 	wound: number;
     strain: number;
     brawn: number;
@@ -47,5 +51,57 @@ export class Character {
     vigilance: number;
     warfare: number;
     xenology: number;
-    notes: string; 
+    notes: string;
+
+	constructor(){
+		this.name = '(Click)';
+	    this.species = null;
+	    this.career = null;
+		this.total_xp = 0;
+		this.spent_xp = 0;
+		this.wound = 0;
+	    this.strain = 0;
+	    this.brawn = 1;
+	    this.agility = 1;
+	    this.intellect = 1;
+	    this.cunning = 1;
+	    this.willpower = 1;
+	    this.presence = 1;
+	    this.astrogation = 0;
+	    this.athletics = 0;
+	    this.brawl = 0;
+	    this.charm = 0;
+	    this.coercion = 0;
+	    this.computers = 0;
+	    this.cool = 0;
+	    this.coordination = 0;
+	    this.coreWorlds = 0;
+	    this.deception = 0;
+	    this.discipline = 0;
+	    this.education = 0;
+	    this.gunnery = 0;
+	    this.leadership = 0;
+	    this.lightsaber = 0;
+	    this.lore = 0;
+	    this.mechanics = 0;
+	    this.medicine = 0;
+	    this.melee = 0;
+	    this.negotiation = 0;
+	    this.outerRim = 0;
+	    this.perception = 0;
+	    this.pilotingP = 0;
+	    this.pilotingS = 0;
+	    this.rangedH = 0;
+	    this.rangedL = 0;
+	    this.resilience = 0;
+	    this.skulduggery = 0;
+	    this.stealth = 0;
+	    this.streetwise = 0;
+	    this.survival = 0;
+	    this.underworld = 0;
+	    this.vigilance = 0;
+	    this.warfare = 0;
+	    this.xenology = 0;
+	    this.notes = '';
+	}
 }

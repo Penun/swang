@@ -6,22 +6,6 @@
 	padding-top: 2.5vh;
 }
 
-.pageGrid {
-	display: grid;
-	grid-template-rows: 4vh auto 1fr;
-	grid-row-gap: 1vh;
-	height: 95vh;
-	overflow-y: auto;
-}
-
-.innerCol {
-	padding-top: 1vh;
-	display: grid;
-	grid-auto-rows: max-content;
-	grid-gap: 1vh;
-	overflow-y: auto;
-}
-
 .closeButton {
 	font-size: 2vmin;
 	grid-row: 1;

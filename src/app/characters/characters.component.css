@@ -1,0 +1,72 @@
+.doubPage {
+	display: grid;
+	grid-template-columns: 16% 1fr;
+	height: 95vh;
+	word-break: break-word;
+	padding-top: 2.5vh;
+}
+
+.gridList_2 {
+	display: grid;
+	grid-template-rows: 4vh auto auto 1fr;
+	grid-row-gap: 1vh;
+	height: 95vh;
+	overflow-y: auto;
+}
+
+.gridPanel {
+	display: grid;
+	grid-template-rows: 4vh 1fr;
+	grid-row-gap: 1vh;
+	height: 95vh;
+	overflow-y: auto;
+}
+
+.panelPad {
+	padding: 3vh 2vw 3vh 2vw;
+}
+
+.charSheetPanel {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 1vw;
+	grid-template-rows: repeat(3, auto) 1fr;
+	grid-row-gap: 1vh;
+}
+
+.staticBack {
+	background-image: url("/assets/img/light_underline.png");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% 10%;
+	font-size: 2.5vmin;
+}
+
+.fieldBack {
+	text-align: left;
+}
+
+.outPanel {
+	grid-row: 2 / 4;
+	z-index: 150;
+}
+
+.inputBack {
+    border: 5px solid transparent;
+    box-shadow: 3px 3px 20px #111144 inset;
+    background-color: rgba(0, 0, 25, 0.5);
+}
+
+.inputBod {
+    color: #a4dde5;
+    padding: 5px;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 2vmin;
+    border: none;
+}

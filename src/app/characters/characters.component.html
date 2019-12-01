@@ -1,3 +1,136 @@
-<p>
-  characters works!
-</p>
+<div class="sixty_he fade_in">
+    <div class="doubPage">
+        <!-- Left Columns  -->
+        <div class="gridCol fade_in gridList_2" *ngIf="curList == 'characters'">
+            <span class="gridRow2 h2"><b>Characters</b></span>
+            <span class="gridRow3 clickable alCenter" (click)="addCharacter()"><b>+ Character</b></span>
+            <div class="gridRow4 innerList">
+                <span *ngFor="let char of characters" class="clickable alCenter">
+                    {{char.name}}
+	            </span>
+            </div>
+        </div>
+        <div class="gridCol fade_in gridList" *ngIf="curList == 'species'">
+            <span class="gridRow2 h2"><b>Species</b></span>
+            <div class="gridRow3 innerList">
+                <span *ngFor="let spec of species" class="clickable alCenter" (click)="showSpeciesDetails(spec)">
+                    {{spec.name}}
+	            </span>
+            </div>
+        </div>
+        <div class="gridCol fade_in gridList" *ngIf="curList == 'careers'">
+            <span class="gridRow2 h2"><b>Careers</b></span>
+            <div class="gridRow3 innerList">
+                <span *ngFor="let career of careers" class="clickable alCenter" (click)="showCareerDetails(career)">
+                    {{career.name}}
+	            </span>
+            </div>
+        </div>
+        <!-- End left colums -->
+        <div class="gridCol2 right_col fade_in gridPanel" *ngIf="curChar">
+            <div class="gridRow2 gridCol charSheetPanel panelPad sw_back_s">
+                <div class="gridRow gridCol clickable fieldBack">
+                    <div *ngIf="nameEdit">
+                        <label for="name">Name:</label>
+                        <input #name type="text" [(ngModel)]="curChar.name" (keyup.enter)="editName()" class="inputBack inputBod" />
+                    </div>
+                    <div *ngIf="!nameEdit" (click)="editName()">
+                        Name: {{ curChar.name }}
+                    </div>
+                </div>
+                <div class="gridRow gridCol2 clickable fieldBack" (click)="editSpecies()">
+                    <span *ngIf="!curChar.species">
+                        Species: (Click)
+                    </span>
+                    <span *ngIf="curChar.species">
+                        Species: {{ curChar.species.name }}
+                    </span>
+                </div>
+                <div class="gridRow2 gridCol staticBack fieldBack" *ngIf="curChar.species">
+                    <span>
+                        Spent XP: {{ curChar.spent_xp }}
+                    </span>
+                </div>
+                <div class="gridRow2 gridCol2 staticBack fieldBack" *ngIf="curChar.species">
+                    <span>
+                        Total XP: {{ curChar.total_xp }}
+                    </span>
+                </div>
+                <div class="gridRow3 gridCol clickable fieldBack" *ngIf="curChar.species" (click)="editCareer()">
+                    <span *ngIf="!curChar.career">
+                        Career: (Click)
+                    </span>
+                    <span *ngIf="curChar.career">
+                        Career: {{ curChar.career.name }}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Species Panel -->
+            <div class="gridCol outPanel fade_in sw_back_s panelPad" *ngIf="curSpec">
+                <button type="button" (click)="editSpecies()" class="closeButton">X</button>
+                <span class="th_head gridRow gridCol"></span>
+                <span class="gridRow gridCol alCenter th_name headerColor"><b>{{curSpec.name}}</b></span>
+                <div class="characterBlock gridCol gridRow2 alCenter">
+                    <span></span>
+                    <span class="th_head gridRow gridCol2"></span>
+                    <span class="headerColor gridRow gridCol2 charCharGrid">
+                        <span><b>Br</b></span>
+                        <span><b>Ag</b></span>
+                        <span><b>In</b></span>
+                        <span><b>Cu</b></span>
+                        <span><b>Wi</b></span>
+                        <span><b>Pr</b></span>
+                    </span>
+                    <span></span>
+                    <span></span>
+                    <span class="charCharGrid">
+                        <span>{{curSpec.brawn}}</span>
+                        <span>{{curSpec.agility}}</span>
+                        <span>{{curSpec.intellect}}</span>
+                        <span>{{curSpec.cunning}}</span>
+                        <span>{{curSpec.willpower}}</span>
+                        <span>{{curSpec.presence}}</span>
+                    </span>
+                    <span></span>
+                </div>
+                <div class="gridCol gridRow3 tp_midRow">
+                    <span class="headerColor th_head tp_midInner"><b>Wound Threshold:</b></span>
+                    <span>{{curSpec.wound_threshold}} + Brawn</span>
+                </div>
+                <div class="gridCol gridRow4 tp_midRow">
+                    <span class="headerColor th_head tp_midInner"><b>Strain Threshold:</b></span>
+                    <span>{{curSpec.strain_threshold}} + Willpower</span>
+                </div>
+                <div class="gridCol gridRow5 tp_midRow">
+                    <span class="headerColor th_head tp_midInner"><b>Starting XP:</b></span>
+                    <span>{{curSpec.starting_xp}} xp</span>
+                </div>
+                <div class="gridRow6 alStretch">
+                    <ul class="tp_specAbil">
+                        <li *ngFor="let attrib of curSpec.attributes">
+                            <span class="attrib_desc" [innerHtml]="attrib.description | safeHtml"></span>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" (click)="setSpecies()" class="closeButton">Select</button>
+            </div>
+            <!-- End Species Panel -->
+            <!-- Career Panel -->
+            <div class="gridCol outPanel fade_in sw_back_s panelPad" *ngIf="curCareer">
+                <button type="button" (click)="editCareer()" class="closeButton">X</button>
+                <div class="gridRow2">
+                    <span class="h2"><b>{{curCareer.name}}</b></span>
+                    <p>Skill Proficiencies: {{curCareer.skill_slots}}</p>
+                    <div class="skillDiv">
+                        <span *ngFor="let skill of curCareer.skills" class="skill">
+                            <i>{{skill.name}}</i>
+                        </span>
+                    </div>
+                </div>
+                <button type="button" (click)="setCareer()" class="closeButton">Select</button>
+            </div>
+            <!-- End Panel -->
+        </div>
+    </div>
+</div>
