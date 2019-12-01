@@ -67,70 +67,154 @@
             </div>
 
             <!-- Species Panel -->
-            <div class="gridCol outPanel fade_in sw_back_s panelPad" *ngIf="curSpec">
-                <button type="button" (click)="editSpecies()" class="closeButton">X</button>
-                <span class="th_head gridRow gridCol"></span>
-                <span class="gridRow gridCol alCenter th_name headerColor"><b>{{curSpec.name}}</b></span>
-                <div class="characterBlock gridCol gridRow2 alCenter">
-                    <span></span>
-                    <span class="th_head gridRow gridCol2"></span>
-                    <span class="headerColor gridRow gridCol2 charCharGrid">
-                        <span><b>Br</b></span>
-                        <span><b>Ag</b></span>
-                        <span><b>In</b></span>
-                        <span><b>Cu</b></span>
-                        <span><b>Wi</b></span>
-                        <span><b>Pr</b></span>
-                    </span>
-                    <span></span>
-                    <span></span>
-                    <span class="charCharGrid">
-                        <span>{{curSpec.brawn}}</span>
-                        <span>{{curSpec.agility}}</span>
-                        <span>{{curSpec.intellect}}</span>
-                        <span>{{curSpec.cunning}}</span>
-                        <span>{{curSpec.willpower}}</span>
-                        <span>{{curSpec.presence}}</span>
-                    </span>
-                    <span></span>
+            <div class="gridCol outPanel fade_in sw_back_s" *ngIf="curSpec">
+                <div class="outInPanel">
+                    <button type="button" (click)="editSpecies()" class="closeButton">X</button>
+                    <span class="th_head gridRow gridCol"></span>
+                    <span class="gridRow gridCol alCenter th_name headerColor"><b>{{curSpec.name}}</b></span>
+                    <div class="characterBlock gridCol gridRow2 alCenter">
+                        <span></span>
+                        <span class="th_head gridRow gridCol2"></span>
+                        <span class="headerColor gridRow gridCol2 charCharGrid">
+                            <span><b>Br</b></span>
+                            <span><b>Ag</b></span>
+                            <span><b>In</b></span>
+                            <span><b>Cu</b></span>
+                            <span><b>Wi</b></span>
+                            <span><b>Pr</b></span>
+                        </span>
+                        <span></span>
+                        <span></span>
+                        <span class="charCharGrid">
+                            <span>{{curSpec.brawn}}</span>
+                            <span>{{curSpec.agility}}</span>
+                            <span>{{curSpec.intellect}}</span>
+                            <span>{{curSpec.cunning}}</span>
+                            <span>{{curSpec.willpower}}</span>
+                            <span>{{curSpec.presence}}</span>
+                        </span>
+                        <span></span>
+                    </div>
+                    <div class="gridCol gridRow3 tp_midRow">
+                        <span class="headerColor th_head tp_midInner"><b>Wound Threshold:</b></span>
+                        <span>{{curSpec.wound_threshold}} + Brawn</span>
+                    </div>
+                    <div class="gridCol gridRow4 tp_midRow">
+                        <span class="headerColor th_head tp_midInner"><b>Strain Threshold:</b></span>
+                        <span>{{curSpec.strain_threshold}} + Willpower</span>
+                    </div>
+                    <div class="gridCol gridRow5 tp_midRow">
+                        <span class="headerColor th_head tp_midInner"><b>Starting XP:</b></span>
+                        <span>{{curSpec.starting_xp}} xp</span>
+                    </div>
+                    <div class="gridRow6 alStretch">
+                        <ul class="tp_specAbil">
+                            <li *ngFor="let attrib of curSpec.attributes">
+                                <span class="attrib_desc" [innerHtml]="attrib.description | safeHtml"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" (click)="setSpecies()" class="closeButton">Select</button>
                 </div>
-                <div class="gridCol gridRow3 tp_midRow">
-                    <span class="headerColor th_head tp_midInner"><b>Wound Threshold:</b></span>
-                    <span>{{curSpec.wound_threshold}} + Brawn</span>
-                </div>
-                <div class="gridCol gridRow4 tp_midRow">
-                    <span class="headerColor th_head tp_midInner"><b>Strain Threshold:</b></span>
-                    <span>{{curSpec.strain_threshold}} + Willpower</span>
-                </div>
-                <div class="gridCol gridRow5 tp_midRow">
-                    <span class="headerColor th_head tp_midInner"><b>Starting XP:</b></span>
-                    <span>{{curSpec.starting_xp}} xp</span>
-                </div>
-                <div class="gridRow6 alStretch">
-                    <ul class="tp_specAbil">
-                        <li *ngFor="let attrib of curSpec.attributes">
-                            <span class="attrib_desc" [innerHtml]="attrib.description | safeHtml"></span>
-                        </li>
-                    </ul>
-                </div>
-                <button type="button" (click)="setSpecies()" class="closeButton">Select</button>
             </div>
             <!-- End Species Panel -->
             <!-- Career Panel -->
-            <div class="gridCol outPanel fade_in sw_back_s panelPad" *ngIf="curCareer">
-                <button type="button" (click)="editCareer()" class="closeButton">X</button>
-                <div class="gridRow2">
-                    <span class="h2"><b>{{curCareer.name}}</b></span>
-                    <p>Skill Proficiencies: {{curCareer.skill_slots}}</p>
-                    <div class="skillDiv">
-                        <span *ngFor="let skill of curCareer.skills" class="skill">
-                            <i>{{skill.name}}</i>
-                        </span>
+            <div class="gridCol outPanel fade_in sw_back_s" *ngIf="curCareer">
+                <div class="outInPanel">
+                    <button type="button" (click)="editCareer()" class="closeButton">X</button>
+                    <div class="gridRow2">
+                        <span class="h2"><b>{{curCareer.name}}</b></span>
+                        <p>Skill Proficiencies: {{curCareer.skill_slots}}</p>
+                        <div>
+                            <span *ngFor="let skill of curCareer.skills">
+                                <i>{{skill.name}}</i>
+                            </span>
+                        </div>
+                        <div>
+                            <span *ngFor="let spec of curCareer.specializations" class="clickable" (click)="showSpecial(spec)">
+                                <p><i>{{spec.name}}</i>
+                                    <span *ngFor="let skill of spec.skills">
+                                        <i>{{skill.name}}</i>
+                                    </span>
+                                </p>
+                            </span>
+                        </div>
                     </div>
+                    <button type="button" (click)="setCareer()" class="closeButton">Select</button>
                 </div>
-                <button type="button" (click)="setCareer()" class="closeButton">Select</button>
             </div>
             <!-- End Panel -->
+            <!-- Specialization Panel -->
+            <div class="gridCol outPanel fade_in sw_back_s" *ngIf="curSpecial">
+                <div class="outInPanel">
+                    <button type="button" (click)="showSpecial(null)" class="closeButton">X</button>
+                    <div>
+                        <span><b>{{curSpecial.name}}</b></span>
+                        <p>Skill Proficiencies: {{curSpecial.skill_slots}}</p>
+                        <div>
+                            <span *ngFor="let skill of curSpecial.skills">
+                                <i>{{skill.name}}</i>
+                            </span>
+                        </div>
+                        <span class="h2"><b>Talent Tree</b></span>
+                        <div>
+                            <div class="talent sw_back gridCol gridRow" (click)="revealTalent(curSpecial.talents[0])">{{curSpecial.talents[0].name}}</div>
+                            <div class="conn gridCol2 gridRow"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[0].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol3 gridRow" (click)="revealTalent(curSpecial.talents[1])">{{curSpecial.talents[1].name}}</div>
+                            <div class="conn gridCol4 gridRow"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[1].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol5 gridRow" (click)="revealTalent(curSpecial.talents[2])">{{curSpecial.talents[2].name}}</div>
+                            <div class="conn gridCol6 gridRow"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[2].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol7 gridRow" (click)="revealTalent(curSpecial.talents[3])">{{curSpecial.talents[3].name}}</div>
+                            <div class="vConn gridCol gridRow2"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[0].down" alt="Conn"/></div>
+                            <div class="vConn gridCol3 gridRow2"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[1].down" alt="Conn"/></div>
+                            <div class="vConn gridCol5 gridRow2"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[2].down" alt="Conn"/></div>
+                            <div class="vConn gridCol7 gridRow2"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[3].down" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol gridRow3" (click)="revealTalent(curSpecial.talents[4])">{{curSpecial.talents[4].name}}</div>
+                            <div class="conn gridCol2 gridRow3"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[4].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol3 gridRow3" (click)="revealTalent(curSpecial.talents[5])">{{curSpecial.talents[5].name}}</div>
+                            <div class="conn gridCol4 gridRow3"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[5].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol5 gridRow3" (click)="revealTalent(curSpecial.talents[6])">{{curSpecial.talents[6].name}}</div>
+                            <div class="conn gridCol6 gridRow3"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[6].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol7 gridRow3" (click)="revealTalent(curSpecial.talents[7])">{{curSpecial.talents[7].name}}</div>
+                            <div class="vConn gridCol gridRow4"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[4].down" alt="Conn"/></div>
+                            <div class="vConn gridCol3 gridRow4"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[5].down" alt="Conn"/></div>
+                            <div class="vConn gridCol5 gridRow4"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[6].down" alt="Conn"/></div>
+                            <div class="vConn gridCol7 gridRow4"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[7].down" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol gridRow5" (click)="revealTalent(curSpecial.talents[8])">{{curSpecial.talents[8].name}}</div>
+                            <div class="conn gridCol2 gridRow5"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[8].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol3 gridRow5" (click)="revealTalent(curSpecial.talents[9])">{{curSpecial.talents[9].name}}</div>
+                            <div class="conn gridCol4 gridRow5"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[9].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol5 gridRow5" (click)="revealTalent(curSpecial.talents[10])">{{curSpecial.talents[10].name}}</div>
+                            <div class="conn gridCol6 gridRow5"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[10].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol7 gridRow5" (click)="revealTalent(curSpecial.talents[11])">{{curSpecial.talents[11].name}}</div>
+                            <div class="vConn gridCol gridRow6"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[8].down" alt="Conn"/></div>
+                            <div class="vConn gridCol3 gridRow6"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[9].down" alt="Conn"/></div>
+                            <div class="vConn gridCol5 gridRow6"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[10].down" alt="Conn"/></div>
+                            <div class="vConn gridCol7 gridRow6"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[11].down" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol gridRow7" (click)="revealTalent(curSpecial.talents[12])">{{curSpecial.talents[12].name}}</div>
+                            <div class="conn gridCol2 gridRow7"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[12].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol3 gridRow7" (click)="revealTalent(curSpecial.talents[13])">{{curSpecial.talents[13].name}}</div>
+                            <div class="conn gridCol4 gridRow7"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[13].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol5 gridRow7" (click)="revealTalent(curSpecial.talents[14])">{{curSpecial.talents[14].name}}</div>
+                            <div class="conn gridCol6 gridRow7"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[14].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol7 gridRow7" (click)="revealTalent(curSpecial.talents[15])">{{curSpecial.talents[15].name}}</div>
+                            <div class="vConn gridCol gridRow8"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[12].down" alt="Conn"/></div>
+                            <div class="vConn gridCol3 gridRow8"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[13].down" alt="Conn"/></div>
+                            <div class="vConn gridCol5 gridRow8"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[14].down" alt="Conn"/></div>
+                            <div class="vConn gridCol7 gridRow8"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[15].down" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol gridRow9" (click)="revealTalent(curSpecial.talents[16])">{{curSpecial.talents[16].name}}</div>
+                            <div class="conn gridCol2 gridRow9"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[16].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol3 gridRow9" (click)="revealTalent(curSpecial.talents[17])">{{curSpecial.talents[17].name}}</div>
+                            <div class="conn gridCol4 gridRow9"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[17].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol5 gridRow9" (click)="revealTalent(curSpecial.talents[18])">{{curSpecial.talents[18].name}}</div>
+                            <div class="conn gridCol6 gridRow9"><img src="/assets/img/connector.png" *ngIf="curSpecial.talents[18].right" alt="Conn"/></div>
+                            <div class="talent sw_back gridCol7 gridRow9" (click)="revealTalent(curSpecial.talents[19])">{{curSpecial.talents[19].name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Panel -->
+            <!-- Talent Panel -->
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Character } from '../object-types/character';
 import { Species } from '../object-types/species';
 import { Career } from '../object-types/career';
+import { Specialization } from '../object-types/specialization';
 
 import { UnitService } from '../services/unit.service';
 import { CharactersService } from '../services/characters.service';
@@ -15,7 +16,7 @@ import { CareersService } from '../services/careers.service';
     styleUrls: ['./characters.component.css']
 })
 export class CharactersComponent implements OnInit {
-    @ViewChild("name") nameField: ElementRef;
+    @ViewChild("name", { static: false }) nameField: ElementRef;
     characters: Character[];
     curChar: Character;
     nameEdit: boolean;
@@ -29,6 +30,7 @@ export class CharactersComponent implements OnInit {
 
     careers: Career[];
     curCareer: Career;
+    curSpecial: Specialization;
 
     constructor(
         private unit: UnitService,
@@ -50,6 +52,7 @@ export class CharactersComponent implements OnInit {
         this.curSpec = null;
         this.careers = null;
         this.curCareer = null;
+        this.curSpecial = null;
     }
 
     addCharacter() {
@@ -108,6 +111,15 @@ export class CharactersComponent implements OnInit {
 
     showCareerDetails(career: Career) {
         this.curCareer = career;
+        this.curSpecial = null;
+    }
+
+    showSpecial(spec: Specialization) {
+        if (this.curSpecial !== null && spec === null){
+            this.curSpecial = null;
+        } else {
+            this.curSpecial = spec;
+        }
     }
 
     setCareer() {
