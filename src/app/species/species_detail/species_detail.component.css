@@ -51,7 +51,7 @@ img.detail_img {
 }
 
 .attrib_desc {
-	font-size: 3vmin;
+	font-size: 1.75em;
 	word-wrap: break-word;
 	text-align: left;
 }
@@ -77,7 +77,7 @@ img.detail_img {
 
 .speciesDet {
 	height: 99%;
-	width: 95%;
+	width: 99%;
 	overflow-y: auto;
 	grid-column: 1;
 	grid-row: 1;
