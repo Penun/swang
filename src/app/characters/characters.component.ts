@@ -5,9 +5,9 @@ import { Species } from '../object-types/species';
 import { Career } from '../object-types/career';
 import { Specialization } from '../object-types/specialization';
 
-import { UnitService } from '../services/unit.service';
+import { UnitService } from '../unit.service';
 import { CharactersService } from '../services/characters.service';
-import { SpeciesService } from '../services/species.service';
+import { SpeciesService } from '../species/species.service';
 import { CareersService } from '../services/careers.service';
 
 @Component({

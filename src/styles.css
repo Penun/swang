@@ -117,6 +117,28 @@ li {
     text-align: center;
 }
 
+/* Species */
+.th_head {
+	background-image: url("/assets/img/light_underline_high.png");
+	background-size: 100% 100%;
+	align-self: stretch;
+}
+
+.th_name {
+	font-size: 2.5vmin;
+}
+
+.headerColor {
+	color: #293c56;
+}
+
+.sw_back_op {
+	background-image: url("/assets/img/sw_back_op.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+/* End Species */
+
 .gridList {
 	display: grid;
 	grid-template-rows: 4vh auto 1fr;

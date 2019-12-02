@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { UnitService } from './unit.service';
+import { UnitService } from '../unit.service';
 
 import { Specialization } from '../object-types/specialization';
 

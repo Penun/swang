@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UnitService } from '../services/unit.service';
+import { UnitService } from '../unit.service';
 import { CareersService } from '../services/careers.service';
 import { SkillsService } from '../services/skills.service';
 

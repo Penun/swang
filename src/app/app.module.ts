@@ -3,21 +3,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms'
+import { SpeciesModule } from './species/species.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { SpeciesComponent } from './species/species.component';
 import { CareersComponent } from './careers/careers.component';
-
-import { SafeHtmlPipe } from './species/species.attribute.image.safe.pipe';
 import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpeciesComponent,
-    SafeHtmlPipe,
     CareersComponent,
     CharactersComponent
   ],
@@ -26,7 +22,8 @@ import { CharactersComponent } from './characters/characters.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SpeciesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

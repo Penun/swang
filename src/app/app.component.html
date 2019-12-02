@@ -6,7 +6,7 @@
                 <img src="/assets/img/{{menuArrow}}" alt="^" [ngClass]="{hide_m: menuStatus}" class="menu_arrow menu_arrow_r fade_in" />
             </div>
             <div class="tab_header sw_back menu_index" [@openClose]="menuStatus ? 'true' : 'false'">
-                <span class="tab fade_in" routerLink="/" routerLinkActive="hide" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{hide_m: !menuStatus}" (click)="toggleMenu()">Species</span>
+                <span class="tab fade_in" routerLink="/species" routerLinkActive="hide" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{hide_m: !menuStatus}" (click)="toggleMenu()">Species</span>
                 <span class="tab fade_in" routerLink="/careers" routerLinkActive="hide" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{hide_m: !menuStatus}" (click)="toggleMenu()">Careers</span>
                 <span class="tab fade_in" routerLink="/characters" routerLinkActive="hide" [routerLinkActiveOptions]="{exact: true}" [ngClass]="{hide_m: !menuStatus}" (click)="toggleMenu()">Characters</span>
             </div>

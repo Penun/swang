@@ -1,0 +1,31 @@
+<div class="tabPag_inner">
+    <div class="headTable headerColor sw_back">
+        <span class="th_head gridRow th_c_span"></span>
+        <span class="alCenter th_name gridRow th_c_span">Species</span>
+        <span class="th_head gridRow2 th_c_span"></span>
+        <span class="gridCol gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('name')">Name</span>
+        <span class="gridCol2 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('brawn')">Br</span>
+        <span class="gridCol3 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('agility')">Ag</span>
+        <span class="gridCol4 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('intellect')">In</span>
+        <span class="gridCol5 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('cunning')">Cu</span>
+        <span class="gridCol6 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('willpower')">Wi</span>
+        <span class="gridCol7 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('presence')">Pr</span>
+        <span class="gridCol8 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('wound_threshold')">Wound Threshold</span>
+        <span class="gridCol9 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('strain_threshold')">Strain Threshold</span>
+        <span class="gridCol10 gridRow2 th_subTab_name alCenter sortable" (click)="sortSpecies('starting_xp')">Starting XP</span>
+    </div>
+    <div class="follTable">
+        <div class="th_item" *ngFor="let spec of species" [routerLink]="spec.id"> <!-- (click)="revealSpecies(spec)"> -->
+            <span class="alCenter">{{spec.name}}</span>
+            <span class="alCenter">{{spec.brawn}}</span>
+            <span class="alCenter">{{spec.agility}}</span>
+            <span class="alCenter">{{spec.intellect}}</span>
+            <span class="alCenter">{{spec.cunning}}</span>
+            <span class="alCenter">{{spec.willpower}}</span>
+            <span class="alCenter">{{spec.presence}}</span>
+            <span class="alCenter">{{spec.wound_threshold}}</span>
+            <span class="alCenter">{{spec.strain_threshold}}</span>
+            <span class="alCenter">{{spec.starting_xp}}</span>
+        </div>
+    </div>
+</div>

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { UnitService } from '../services/unit.service';
-import { SpeciesService } from '../services/species.service';
+import { UnitService } from '../../unit.service';
+import { SpeciesService } from '../species.service';
 
-import { Species } from '../object-types/species';
+import { Species } from '../../object-types/species';
 
 @Component({
-  selector: 'app-species',
-  templateUrl: './species.component.html',
-  styleUrls: ['./species.component.css']
+  selector: 'app-species-list',
+  templateUrl: './species_list.component.html',
+  styleUrls: ['./species_list.component.css']
 })
-export class SpeciesComponent implements OnInit {
+export class SpeciesListComponent implements OnInit {
     species: Species[];
     curSpec: Species;
     lastSort: string;
@@ -22,22 +22,9 @@ export class SpeciesComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.unit.log("Spec Comp :: Init");
+        this.unit.log("Spec List Comp :: Init");
         this.specServ.getSpecies()
             .subscribe(species => this.species = species);
-    }
-
-    revealSpecies(spec: Species): void {
-        this.unit.log(`Spec Comp :: revealSpecies :: ${spec.name}`);
-        if (spec.attributes == null){
-            this.specServ.getSpecAttr(spec.id)
-                .subscribe(attributes => spec.attributes = attributes);
-        }
-        this.curSpec = spec;
-    }
-
-    closePanel(): void {
-        this.curSpec = null;
     }
 
     sortSpecies(varName: string): void {
@@ -64,5 +51,5 @@ export class SpeciesComponent implements OnInit {
             }
             this.lastSort = varName + "asc";
         }
-    };
+    }
 }

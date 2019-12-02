@@ -1,0 +1,98 @@
+.closeButton {
+	font-size: 2vmin;
+	grid-row: 1;
+	grid-column: 1;
+	justify-self: right;
+	align-self: start;
+	margin: 3vh 2vw 0 0;
+}
+
+img.detail_img {
+	width: auto;
+	max-width: 95%;
+	height: auto;
+	max-height: 83vh;
+	grid-row: 1;
+	grid-column: 1;
+	justify-self: center;
+	align-self: center;
+}
+
+.characterBlock {
+	font-size: 1.3em;
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: 3vw auto 3vw;
+	align-items: center;
+	grid-row-gap: 1vh;
+}
+
+.charCharGrid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: 1fr;
+}
+
+.tp_midRow {
+	padding-left: 3vw;
+	font-size: 1.35em;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.tp_midInner {
+	margin-right: 1vmin;
+	padding: 0 1vw 0 1vw;
+}
+
+.tp_specAbil > li {
+	width: 90%;
+	padding: 2vh 0 0 3vw;
+}
+
+.attrib_desc {
+	font-size: 3vmin;
+	word-wrap: break-word;
+	text-align: left;
+}
+
+.alStretch {
+	justify-self: stretch;
+	align-self: stretch;
+	text-align: justify;
+}
+
+.speciesMain {
+	grid-row: 1 / 3;
+	grid-column: 1;
+	z-index: 150;
+	height: 96vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	justify-items: center;
+	align-items: center;
+	margin-top: 2vh;
+}
+
+.speciesDet {
+	height: 99%;
+	width: 95%;
+	overflow-y: auto;
+	grid-column: 1;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 10vh 10vh repeat(3, auto) 1fr;
+	grid-row-gap: 1vh;
+}
+
+.speciesImg {
+	height: 100%;
+	width: 100%;
+	grid-column: 2;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+}

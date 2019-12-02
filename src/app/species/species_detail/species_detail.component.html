@@ -1,0 +1,52 @@
+<div class="speciesMain fade_in" *ngIf="species$ | async as species">
+    <div class="speciesDet speciesInner">
+        <span class="th_head gridRow gridCol"></span>
+        <span class="gridRow gridCol alCenter th_name headerColor"><b>{{species.name}}</b></span>
+        <div class="characterBlock gridCol gridRow2 alCenter">
+            <span></span>
+            <span class="th_head gridRow gridCol2"></span>
+            <span class="headerColor gridRow gridCol2 charCharGrid">
+                <span><b>Br</b></span>
+                <span><b>Ag</b></span>
+                <span><b>In</b></span>
+                <span><b>Cu</b></span>
+                <span><b>Wi</b></span>
+                <span><b>Pr</b></span>
+            </span>
+            <span></span>
+            <span></span>
+            <span class="charCharGrid">
+                <span>{{species.brawn}}</span>
+                <span>{{species.agility}}</span>
+                <span>{{species.intellect}}</span>
+                <span>{{species.cunning}}</span>
+                <span>{{species.willpower}}</span>
+                <span>{{species.presence}}</span>
+            </span>
+            <span></span>
+        </div>
+        <div class="gridCol gridRow3 tp_midRow">
+            <span class="headerColor th_head tp_midInner"><b>Wound Threshold:</b></span>
+            <span>{{species.wound_threshold}} + Brawn</span>
+        </div>
+        <div class="gridCol gridRow4 tp_midRow">
+            <span class="headerColor th_head tp_midInner"><b>Strain Threshold:</b></span>
+            <span>{{species.strain_threshold}} + Willpower</span>
+        </div>
+        <div class="gridCol gridRow5 tp_midRow">
+            <span class="headerColor th_head tp_midInner"><b>Starting XP:</b></span>
+            <span>{{species.starting_xp}} xp</span>
+        </div>
+        <div class="gridRow6 alStretch">
+            <ul class="tp_specAbil">
+                <li *ngFor="let attrib of species.attributes">
+                    <span class="attrib_desc" [innerHtml]="attrib.description | safeHtml"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="speciesImg sw_back_op">
+        <img class="detail_img" src="/assets/img/species/{{species.img_name}}" alt="" />
+        <button type="button" routerLink="/species" class="closeButton">X</button>
+    </div>
+</div>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { UnitService } from './unit.service';
+import { UnitService } from '../unit.service';
 
 import { Species, SpeAttribute } from '../object-types/species';
 
@@ -14,15 +14,30 @@ import { SPECIES, SPECATTRS } from '../mock-species';
 })
 export class SpeciesService {
 
-    private speciesUrl: string = '/species';
+    private speciesUrl: string;
+    private species: Species[];
 
     constructor(
         private unit: UnitService
-    ) { }
+    ) {
+        this.speciesUrl = '/species';
+        this.species = null;
+    }
 
     getSpecies(): Observable<Species[]> {
         this.unit.log("Spec Serv :: Species Began");
-        return of(SPECIES);
+        if (this.species === null){
+            this.unit.log("Spec Serv :: Species Initiated");
+            this.species = SPECIES;
+        }
+        return of(this.species);
+    }
+
+    getSpeciesId(id: number | string) {
+        this.unit.log("Spec Serv :: Species ID Began :: ID :: "+id);
+        return this.getSpecies().pipe(
+            map((species: Species[]) => species.find(spec => spec.id === +id))
+        );
     }
 
     getSpecAttr(id: number): Observable<SpeAttribute[]> {

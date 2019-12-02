@@ -1,7 +1,7 @@
 import { Species, SpeAttribute } from './object-types/species';
 
 export const SPECIES: Species[] = [
-  { id: 11, name: 'Mr. Nice', brawn: 1, agility: 2, intellect: 3, cunning: 4, willpower: 5, presence: 6, wound_threshold: 7, strain_threshold: 8, starting_xp: 100, ref_page: "25", img_name:"aleena.png", attributes: null },
+  { id: 11, name: 'Mr. Nice', brawn: 1, agility: 2, intellect: 3, cunning: 4, willpower: 5, presence: 6, wound_threshold: 7, strain_threshold: 8, starting_xp: 100, ref_page: "25", img_name:"aleena.png", attributes: [{ id: 11, description: 'Mr nice description' }, { id: 12, description: 'Narco description'}, { id: 13, description: 'Bomb description'} ]},
   { id: 12, name: 'Narco', brawn: 2, agility: 3, intellect: 4, cunning: 5, willpower: 6, presence: 7, wound_threshold: 8, strain_threshold: 9, starting_xp: 100, ref_page: "25", img_name:"zabrak.png", attributes: null },
   { id: 13, name: 'Bombasto', brawn: 3, agility: 4, intellect: 5, cunning: 6, willpower: 7, presence: 8, wound_threshold: 9, strain_threshold: 10, starting_xp: 100, ref_page: "25", img_name:"hutt.png", attributes: null },
   { id: 14, name: 'Celeritas', brawn: 4, agility: 5, intellect: 6, cunning: 7, willpower: 8, presence: 9, wound_threshold: 10, strain_threshold: 11, starting_xp: 100, ref_page: "25", img_name:"wookie.png", attributes: null },

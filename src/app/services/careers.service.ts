@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { UnitService } from './unit.service';
+import { UnitService } from '../unit.service';
 
 import { Career } from '../object-types/career';
 import { Specialization } from '../object-types/specialization';
