@@ -5,6 +5,7 @@
     grid-template-rows: 10vh 1fr;
 	grid-row-gap: 0.5vh;
 	grid-template-columns: 1fr;
+	height: 96vh;
 }
 
 .headTable {
@@ -49,7 +50,7 @@
 .th_item {
     display: grid;
     grid-template-columns: 30% repeat(6, 3%) repeat(3, 1fr);
-    background-image: url("/assets/img/light_underline.png");
+    background-image: url("/static/img/light_underline.png");
 	background-size: 105% 20%;
     background-repeat: no-repeat;
 	background-position: bottom center;
@@ -57,7 +58,7 @@
 
 .th_item:hover {
 	cursor: pointer;
-	background-image: url("/assets/img/light_underline_high.png");
+	background-image: url("/static/img/light_underline_high.png");
 	background-size: 100% 100%;
 	color: #293c56;
 	font-weight: 200;

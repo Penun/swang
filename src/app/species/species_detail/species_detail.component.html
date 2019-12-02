@@ -1,4 +1,4 @@
-<div class="speciesMain fade_in" *ngIf="species$ | async as species">
+<div class="speciesMain fade_in" *ngIf="species">
     <div class="speciesDet speciesInner">
         <span class="th_head gridRow gridCol"></span>
         <span class="gridRow gridCol alCenter th_name headerColor"><b>{{species.name}}</b></span>
@@ -39,14 +39,14 @@
         </div>
         <div class="gridRow6 alStretch">
             <ul class="tp_specAbil">
-                <li *ngFor="let attrib of species.attributes">
+                <li *ngFor="let attrib of attrs">
                     <span class="attrib_desc" [innerHtml]="attrib.description | safeHtml"></span>
                 </li>
             </ul>
         </div>
     </div>
     <div class="speciesImg sw_back_op">
-        <img class="detail_img" src="/assets/img/species/{{species.img_name}}" alt="" />
+        <img class="detail_img" src="/static/img/species/{{species.img_name}}" alt="" />
         <button type="button" routerLink="/species" class="closeButton">X</button>
     </div>
 </div>
