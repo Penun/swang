@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -7,30 +8,38 @@ import { UnitService } from '../unit.service';
 
 import { Species, SpeAttribute } from '../object-types/species';
 
-import { SPECIES, SPECATTRS } from '../mock-species';
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class SpeciesService {
 
     private speciesUrl: string;
-    private species: Species[];
+    private specAttrUrl: string;
+
+    private obsSpecies: Observable<Species[]>;
 
     constructor(
-        private unit: UnitService
+        private unit: UnitService,
+        private http: HttpClient
     ) {
-        this.speciesUrl = '/species';
-        this.species = null;
+        this.speciesUrl = '/species/list';
+        this.specAttrUrl = '/species/attributes';
+        this.obsSpecies = null;
     }
 
     getSpecies(): Observable<Species[]> {
         this.unit.log("Spec Serv :: Species Began");
-        if (this.species === null){
-            this.unit.log("Spec Serv :: Species Initiated");
-            this.species = SPECIES;
+        if (this.obsSpecies === null){
+            this.obsSpecies = this.http.get<Species[]>(this.speciesUrl).pipe(
+                tap(_ => this.unit.log('Spec Serv :: Species Gotten')),
+                catchError(this.handleError('getSpecies', []))
+            );
         }
-        return of(this.species);
+        return this.obsSpecies;
     }
 
     getSpeciesId(id: number | string) {
@@ -41,8 +50,11 @@ export class SpeciesService {
     }
 
     getSpecAttr(id: number): Observable<SpeAttribute[]> {
-        this.unit.log("Spec Serv :: Spec Began");
-        return of(SPECATTRS.filter(specAttr => specAttr.id === id))
+        this.unit.log("Spec Serv :: Spec Attr Began");
+        return this.http.post<SpeAttribute[]>(this.specAttrUrl, {id: id}, httpOptions).pipe(
+            tap(_ => this.unit.log("Spec  Attr Serv :: Spec Gotten")),
+            catchError(this.handleError<SpeAttribute[]>('getSpecAttr'))
+        );
     }
 
     private handleError<T> (operation = 'operation', result?: T) {
