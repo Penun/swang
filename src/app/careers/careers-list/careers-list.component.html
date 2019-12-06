@@ -1,0 +1,6 @@
+<span class="gridRow2 h2"><b>Careers</b></span>
+<div class="gridRow3 innerList">
+    <span *ngFor="let care of careers$ | async" [routerLink]="[{outlets: {primary: [care.id], c_det: [care.id]}}]" class="clickable alCenter">
+        {{care.name}}
+    </span>
+</div>

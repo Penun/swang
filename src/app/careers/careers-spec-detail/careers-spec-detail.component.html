@@ -1,0 +1,12 @@
+<div *ngIf="special$ | async as special">
+    <span class="h2"><b>{{special.name}}</b></span>
+    <p>Skill Proficiencies: {{special.skill_slots}}</p>
+    <div class="skillDiv">
+        <span *ngFor="let skill of skills$ | async" class="skill">
+            <i>{{skill.name}}</i>
+        </span>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

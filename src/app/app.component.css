@@ -55,10 +55,6 @@
 	background-size: 100% 100%;
 }
 
-.menu_arrow {
-	max-height: 3vh;
-}
-
 .menu_arrow_l {
 	-ms-transform: rotateZ(-17.1deg);
     -webkit-transform: rotateZ(-17.1deg);

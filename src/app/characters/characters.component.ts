@@ -8,7 +8,7 @@ import { Specialization } from '../object-types/specialization';
 import { UnitService } from '../unit.service';
 import { CharactersService } from '../services/characters.service';
 import { SpeciesService } from '../species/species.service';
-import { CareersService } from '../services/careers.service';
+import { CareersService } from '../careers/careers.service';
 
 @Component({
     selector: 'app-characters',

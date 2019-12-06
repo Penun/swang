@@ -1,0 +1,54 @@
+<span class="h2"><b>Talent Tree</b></span>
+<div class="specialWrap" *ngIf="talents">
+    <div class="talent sw_back gridCol gridRow" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[0].id]}}]">{{talents[0].name}}</div>
+    <div class="conn gridCol2 gridRow"><img src="/assets/img/connector.png" *ngIf="talents[0].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol3 gridRow" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[1].id]}}]">{{talents[1].name}}</div>
+    <div class="conn gridCol4 gridRow"><img src="/assets/img/connector.png" *ngIf="talents[1].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol5 gridRow" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[2].id]}}]">{{talents[2].name}}</div>
+    <div class="conn gridCol6 gridRow"><img src="/assets/img/connector.png" *ngIf="talents[2].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol7 gridRow" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[3].id]}}]">{{talents[3].name}}</div>
+    <div class="vConn gridCol gridRow2"><img src="/assets/img/connector.png" *ngIf="talents[0].down" alt="Conn"/></div>
+    <div class="vConn gridCol3 gridRow2"><img src="/assets/img/connector.png" *ngIf="talents[1].down" alt="Conn"/></div>
+    <div class="vConn gridCol5 gridRow2"><img src="/assets/img/connector.png" *ngIf="talents[2].down" alt="Conn"/></div>
+    <div class="vConn gridCol7 gridRow2"><img src="/assets/img/connector.png" *ngIf="talents[3].down" alt="Conn"/></div>
+    <div class="talent sw_back gridCol gridRow3" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[4].id]}}]">{{talents[4].name}}</div>
+    <div class="conn gridCol2 gridRow3"><img src="/assets/img/connector.png" *ngIf="talents[4].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol3 gridRow3" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[5].id]}}]">{{talents[5].name}}</div>
+    <div class="conn gridCol4 gridRow3"><img src="/assets/img/connector.png" *ngIf="talents[5].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol5 gridRow3" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[6].id]}}]">{{talents[6].name}}</div>
+    <div class="conn gridCol6 gridRow3"><img src="/assets/img/connector.png" *ngIf="talents[6].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol7 gridRow3" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[7].id]}}]">{{talents[7].name}}</div>
+    <div class="vConn gridCol gridRow4"><img src="/assets/img/connector.png" *ngIf="talents[4].down" alt="Conn"/></div>
+    <div class="vConn gridCol3 gridRow4"><img src="/assets/img/connector.png" *ngIf="talents[5].down" alt="Conn"/></div>
+    <div class="vConn gridCol5 gridRow4"><img src="/assets/img/connector.png" *ngIf="talents[6].down" alt="Conn"/></div>
+    <div class="vConn gridCol7 gridRow4"><img src="/assets/img/connector.png" *ngIf="talents[7].down" alt="Conn"/></div>
+    <div class="talent sw_back gridCol gridRow5" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[8].id]}}]">{{talents[8].name}}</div>
+    <div class="conn gridCol2 gridRow5"><img src="/assets/img/connector.png" *ngIf="talents[8].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol3 gridRow5" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[9].id]}}]">{{talents[9].name}}</div>
+    <div class="conn gridCol4 gridRow5"><img src="/assets/img/connector.png" *ngIf="talents[9].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol5 gridRow5" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[10].id]}}]">{{talents[10].name}}</div>
+    <div class="conn gridCol6 gridRow5"><img src="/assets/img/connector.png" *ngIf="talents[10].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol7 gridRow5" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[11].id]}}]">{{talents[11].name}}</div>
+    <div class="vConn gridCol gridRow6"><img src="/assets/img/connector.png" *ngIf="talents[8].down" alt="Conn"/></div>
+    <div class="vConn gridCol3 gridRow6"><img src="/assets/img/connector.png" *ngIf="talents[9].down" alt="Conn"/></div>
+    <div class="vConn gridCol5 gridRow6"><img src="/assets/img/connector.png" *ngIf="talents[10].down" alt="Conn"/></div>
+    <div class="vConn gridCol7 gridRow6"><img src="/assets/img/connector.png" *ngIf="talents[11].down" alt="Conn"/></div>
+    <div class="talent sw_back gridCol gridRow7" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[12].id]}}]">{{talents[12].name}}</div>
+    <div class="conn gridCol2 gridRow7"><img src="/assets/img/connector.png" *ngIf="talents[12].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol3 gridRow7" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[13].id]}}]">{{talents[13].name}}</div>
+    <div class="conn gridCol4 gridRow7"><img src="/assets/img/connector.png" *ngIf="talents[13].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol5 gridRow7" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[14].id]}}]">{{talents[14].name}}</div>
+    <div class="conn gridCol6 gridRow7"><img src="/assets/img/connector.png" *ngIf="talents[14].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol7 gridRow7" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[15].id]}}]">{{talents[15].name}}</div>
+    <div class="vConn gridCol gridRow8"><img src="/assets/img/connector.png" *ngIf="talents[12].down" alt="Conn"/></div>
+    <div class="vConn gridCol3 gridRow8"><img src="/assets/img/connector.png" *ngIf="talents[13].down" alt="Conn"/></div>
+    <div class="vConn gridCol5 gridRow8"><img src="/assets/img/connector.png" *ngIf="talents[14].down" alt="Conn"/></div>
+    <div class="vConn gridCol7 gridRow8"><img src="/assets/img/connector.png" *ngIf="talents[15].down" alt="Conn"/></div>
+    <div class="talent sw_back gridCol gridRow9" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[16].id]}}]">{{talents[16].name}}</div>
+    <div class="conn gridCol2 gridRow9"><img src="/assets/img/connector.png" *ngIf="talents[16].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol3 gridRow9" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[17].id]}}]">{{talents[17].name}}</div>
+    <div class="conn gridCol4 gridRow9"><img src="/assets/img/connector.png" *ngIf="talents[17].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol5 gridRow9" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[18].id]}}]">{{talents[18].name}}</div>
+    <div class="conn gridCol6 gridRow9"><img src="/assets/img/connector.png" *ngIf="talents[18].right" alt="Conn"/></div>
+    <div class="talent sw_back gridCol7 gridRow9" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]+'/'+[talents[19].id]}}]">{{talents[19].name}}</div>
+</div>

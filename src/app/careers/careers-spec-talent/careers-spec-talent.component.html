@@ -1,0 +1,12 @@
+<div class="sw_back_s fade_in" *ngIf="talent$ | async as talent">
+    <div class="talentPanel">
+        <button type="button" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [specId]}}]" class="closeButton">X</button>
+        <div class="gridRow gridCol h2">{{talent.name}}</div>
+        <div class="gridRow2 gridCol">Type: {{talent.type}}</div>
+        <div class="gridRow3 gridCol">Ranked:
+            <span style="float: none;" *ngIf="talent.ranked">Yes</span>
+            <span style="float: none;" *ngIf="!talent.ranked">No</span>
+        </div>
+        <div [innerHtml]="talent.description" class="taleDesc gridRow4 tp_spanCol"></div>
+    </div>
+</div>
