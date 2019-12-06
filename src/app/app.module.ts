@@ -4,17 +4,16 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule } from '@angular/forms'
 import { SpeciesModule } from './species/species.module';
+import { CareersModule } from './careers/careers.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { CareersComponent } from './careers/careers.component';
 import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CareersComponent,
     CharactersComponent
   ],
   imports: [
@@ -23,7 +22,8 @@ import { CharactersComponent } from './characters/characters.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SpeciesModule
+    SpeciesModule,
+    CareersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

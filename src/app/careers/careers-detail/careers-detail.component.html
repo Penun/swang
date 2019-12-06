@@ -1,0 +1,9 @@
+<div *ngIf="career$ | async as career">
+    <span class="h2"><b>{{career.name}}</b></span>
+    <p>Skill Proficiencies: {{career.skill_slots}}</p>
+    <div class="skillDiv">
+        <span *ngFor="let skill of skills$ | async" class="skill">
+            <i>{{skill.name}}</i>
+        </span>
+    </div>
+</div>

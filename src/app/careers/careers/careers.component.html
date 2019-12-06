@@ -1,0 +1,16 @@
+<div class="sixty_he fade_in">
+    <div class="doubPage">
+        <div class="gridCol fade_in gridList">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="gridCol2 right_col gridList fade_in">
+            <!-- <div class="mobOnly"><button type="button" ng-click="mCont.BackToMidCar()" class="closeButton">Back</button></div> -->
+            <div class="gridRow2">
+                <router-outlet name='c_det'></router-outlet>
+            </div>
+            <div class="fade_in gridRow3 specialGrid">
+                <router-outlet name="s_det"></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -155,6 +155,35 @@ li {
 	overflow-y: auto;
 }
 
+.doubPage {
+	display: grid;
+	grid-template-columns: 16% 1fr;
+	height: 95vh;
+	word-break: break-word;
+	padding-top: 2.5vh;
+}
+
+.menu_arrow {
+	max-height: 3vh;
+}
+
+.skillDiv {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto;
+	align-items: end;
+	justify-items: stretch;
+	margin-bottom: 3vh;
+}
+
+.skill {
+	text-align: center;
+	background-image: url('/assets/img/light_underline.png');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 95% 15%;
+}
+
 @keyframes fade_in {
 	0% { opacity: 0; }
 	100% { opacity: 1; }

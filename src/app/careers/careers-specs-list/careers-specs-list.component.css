@@ -1,0 +1,11 @@
+.menu_arrow_l {
+	-ms-transform: rotateZ(-90deg);
+    -webkit-transform: rotateZ(-90deg);
+    transform: rotateZ(-90deg);
+}
+
+.outerList {
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+	grid-row-gap: 1vh;
+}

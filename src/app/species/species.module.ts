@@ -20,9 +20,6 @@ import { SafeHtmlPipe } from './species_detail/image.safe.pipe';
     imports: [
         CommonModule,
         SpeciesRoutingModule
-    ],
-    exports: [
-        SpeciesDetailComponent
     ]
 })
 export class SpeciesModule { }

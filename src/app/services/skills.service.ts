@@ -22,4 +22,14 @@ export class SkillsService {
         this.unit.log('Skill Serv :: Skills Began');
         return of(SKILLS);
     }
+
+    getCarSkills(id: number): Observable<Skill[]> {
+        this.unit.log('Skill Serv :: Car Skills Began');
+        return of(SKILLS);
+    }
+
+    getSpecSkills(id: number): Observable<Skill[]> {
+        this.unit.log('Skill Serv :: Spec Skills Began');
+        return of(SKILLS);
+    }
 }
