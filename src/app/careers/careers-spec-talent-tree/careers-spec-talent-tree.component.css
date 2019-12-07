@@ -14,7 +14,7 @@
 }
 
 .talent:hover {
-	background-image: url("/assets/img/sw_back_h.png");
+	background-image: url("/static/img/sw_back_h.png");
 	background-size: 100% 100%;
 	background-repeat: round;
 	cursor: pointer;

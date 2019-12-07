@@ -178,7 +178,7 @@ li {
 
 .skill {
 	text-align: center;
-	background-image: url('/assets/img/light_underline.png');
+	background-image: url('/static/img/light_underline.png');
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: 95% 15%;

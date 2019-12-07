@@ -33,6 +33,6 @@ export class CareersSpecTalentComponent implements OnInit {
         this.specId = this.careerServ.getCurSpecId();
         let t_id: number;
         t_id = +map.get('t_id');
-        this.talent$ = this.careerServ.getTalent(0);
+        this.talent$ = this.careerServ.getTalent(t_id);
     }
 }

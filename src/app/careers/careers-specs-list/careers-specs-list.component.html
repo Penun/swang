@@ -1,5 +1,5 @@
 <div class="outerList">
-    <span class="clickable alCenter" (mouseenter)="darkArrow()" (mouseleave)="lightArrow()" routerLink="/careers"><img src="/assets/img/{{menuArrow}}" alt="^" class="menu_arrow_l menu_arrow" /> Careers</span>
+    <span class="clickable alCenter" (mouseenter)="darkArrow()" (mouseleave)="lightArrow()" routerLink="/careers"><img src="/static/img/{{menuArrow}}" alt="^" class="menu_arrow_l menu_arrow" /> Careers</span>
     <span class="gridRow2 h2 alCenter"><b>Specializations</b></span>
     <div class="gridRow3 innerList">
         <span *ngFor="let spec of specializations$ | async" [routerLink]="['/careers', {outlets: {primary: [carId], c_det: [carId], s_det: [spec.id]}}]" class="clickable alCenter">

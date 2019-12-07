@@ -33,6 +33,6 @@ export class CareersDetailComponent implements OnInit {
         id = map.get('c_id');
         this.career$ = this.careerServ.getCareer(+id);
         this.careerServ.setCurCareerId(+id);
-        this.skills$ = this.skilServ.getCarSkills(+id);
+        this.skills$ = this.skilServ.getCareerSkills(+id);
     }
 }
