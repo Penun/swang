@@ -1,0 +1,32 @@
+<div class="itemBase">
+    <div *ngIf="weapons.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Weapon Attachments</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let att of weapons" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{att.model}}</span><span class="gridCol2">{{att.attachment.price }}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="armor.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Armor Attachments</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let att of armor" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{att.model}}</span><span class="gridCol2">{{att.attachment.price }}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="lightsabers.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Lightsaber Attachments</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let att of lightsabers" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{att.model}}</span><span class="gridCol2">{{att.attachment.price }}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="weapons.length <= 0 && armor.length <= 0 && lightsabers.length <= 0" class="itemTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">No Attachments Found</span>
+    </div>
+</div>

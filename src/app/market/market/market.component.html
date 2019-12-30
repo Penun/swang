@@ -1,0 +1,45 @@
+<div class="sixty_he fade_in">
+    <div class="base_page">
+        <div class="gridRow2 market_mod">
+            <span><label><b>Planet Mod:</b></label><select (change)="onSelect($event.target.value)">
+                <option value="2">Primary Core world such as Coruscant, Duro, or Corellia</option>
+                <option value="1">Other Core world</option>
+                <option value="1">World on primary trade lane</option>
+                <option value="0">Colony or Inner Rim world</option>
+                <option value="0" selected>Civilized world</option>
+                <option value="-1">Mid Rim world</option>
+                <option value="-1">Recently settled world, out of the way world</option>
+                <option value="-2">Outer Rim world</option>
+                <option value="-2">Frontier world</option>
+                <option value="-3">Wild Space world</option>
+                <option value="-4">Uncivilized world</option>
+            </select></span>
+            <span><label><b>Black Market (Restricted)</b></label><input type="checkbox" (change)="onCheck()" /></span>
+            <span><button type="button" (click)="updateSettings()">Generate</button></span>
+        </div>
+        <div class="market_body gridRow3" *ngIf="isReady">
+            <div class="gridRow market_tabs">
+                <span class="clickable sw_back_op" (click)="setCurTab('melee')">Melee Market</span>
+                <span class="clickable sw_back_op" (click)="setCurTab('ranged')">Ranged Market</span>
+                <span class="clickable sw_back_op" (click)="setCurTab('armor')">Armor Market</span>
+                <span class="clickable sw_back_op" (click)="setCurTab('gear')">Gear Market</span>
+                <span class="clickable sw_back_op" (click)="setCurTab('attach')">Attachment Market</span>
+            </div>
+            <div class="gridRow2" *ngIf="curTab == 'melee'">
+                <app-market-melee *ngIf="curTab == 'melee'"></app-market-melee>
+            </div>
+            <div class="gridRow2" *ngIf="curTab == 'ranged'">
+                <app-market-ranged *ngIf="curTab == 'ranged'"></app-market-ranged>
+            </div>
+            <div class="gridRow2" *ngIf="curTab == 'armor'">
+                <app-market-armor *ngIf="curTab == 'armor'"></app-market-armor>
+            </div>
+            <div class="gridRow2" *ngIf="curTab == 'gear'">
+                <app-market-gear *ngIf="curTab == 'gear'"></app-market-gear>
+            </div>
+            <div class="gridRow2" *ngIf="curTab == 'attach'">
+                <app-market-attachment *ngIf="curTab == 'attach'"></app-market-attachment>
+            </div>
+        </div>
+    </div>
+</div>

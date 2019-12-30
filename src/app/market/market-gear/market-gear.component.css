@@ -1,0 +1,70 @@
+.itemBase {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    overflow-y: auto;
+}
+
+.itemTable {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    align-items: center;
+}
+
+.itemMainTable {
+    grid-template-rows: 5vh 5vh 1fr;
+}
+
+.itemTabBase {
+    margin-top: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    flex-basis: 20vw;
+    flex-grow: 1;
+    height: min-content;
+    max-height: 75vh;
+}
+
+.itemRowContainer {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.itemSpan {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.th_sub_name {
+    font-size: 1.25em;
+}
+
+.th_head_mod {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 1.1em;
+}
+
+.th_head_unmod {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 1.75em;
+}
+
+.pads {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.margs {
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    font-size: 1em
+}
+
+.alignLeft {
+    text-align: left;
+    margin-left: 2vw;
+}

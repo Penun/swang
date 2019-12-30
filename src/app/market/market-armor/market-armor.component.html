@@ -1,0 +1,12 @@
+<div class="armorBase">
+    <div *ngIf="armor.length > 0" class="armorTable armorMainTable sw_back_s armTabBase">
+        <span class="alCenter th_head headerColor th_name armorSpan th_head_mod pads">Armor</span>
+        <span class="alCenter armorSpan armorTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span *ngFor="let arm of armor" class="armorSpan armorTable clickable margs">
+            <span class="gridCol alignLeft">{{arm.model}}</span><span class="gridCol2">{{arm.armor.price}}</span>
+        </span>
+    </div>
+    <div *ngIf="armor.length <= 0" class="armorTable sw_back_s armTabBase">
+        <span class="alCenter th_head headerColor th_name armorSpan th_head_mod pads">No Armor Found</span>
+    </div>
+</div>

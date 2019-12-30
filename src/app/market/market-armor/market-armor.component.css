@@ -1,0 +1,55 @@
+.armorBase {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.armorTable {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    align-items: center;
+}
+
+.armorMainTable {
+    grid-template-rows: 5vh 5vh 1fr;
+}
+
+.armTabBase {
+    margin-top: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    flex-grow: 1;
+    height: min-content;
+    max-height: 75vh;
+}
+
+.armorSpan {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.th_sub_name {
+    font-size: 1.25em;
+}
+
+.th_head_mod {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.pads {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.margs {
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+.alignLeft {
+    text-align: left;
+    margin-left: 2vw;
+}

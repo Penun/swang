@@ -1,0 +1,32 @@
+<div class="itemBase">
+    <div *ngIf="light.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Ranged (Light)</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let weap of light" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="heavy.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Ranged (Heavy)</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let weap of heavy" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="gunn.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Gunnery</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let weap of gunn" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="light.length <= 0 && heavy.length <= 0 && gunn.length <= 0" class="itemTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">No Ranged Found</span>
+    </div>
+</div>

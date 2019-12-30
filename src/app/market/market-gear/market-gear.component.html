@@ -1,0 +1,122 @@
+<div class="itemBase">
+    <div *ngIf="comms.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Communications Equipment</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of comms" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="drugs.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Poisons and Drugs</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of drugs" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="scanners.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Scanning and Surveillance Equipment (Detection Devices)</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of scanners" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="medical.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Medical Equipment</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of medical" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="cybernetics.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Cybernetic Enhancements and Replacements</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of cybernetics" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="recrereation.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Recreational Entertainment</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of recrereation" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="security.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Infiltration and Espionage Equipment (Security)</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of security" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="survival.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Survival Gear</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of survival" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="tools.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Tools and Electronics</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of tools" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="loadBearing.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Load Bearing, Carrying, and Storage Equipment</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of loadBearing" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="slicing.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Slicing Tools</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of slicing" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="construction.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Construction and Salvage Tools</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of construction" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="remotes.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_mod pads">Remotes</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let gear of remotes" class="itemTable clickable margs">
+                <span class="gridCol alignLeft">{{gear.model}}</span><span class="gridCol2">{{gear.gear.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="itemless" class="itemTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor itemSpan th_head_unmod pads">No Gear Found</span>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+.base_page {
+    display: grid;
+    grid-template-rows: 4vh 3vh 1fr;
+	height: 95vh;
+	word-break: break-word;
+	margin-top: 2.5vh;
+    overflow-y: auto;
+}
+
+.market_mod {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.market_mod > span {
+    padding: 0.5vh 0.75vw 0.5vh 0.75vw;
+    text-align: center;
+}
+
+.market_body {
+    display: grid;
+    grid-template-rows: 5vh 1fr;
+    margin-top: 2vh;
+}
+
+.market_tabs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.market_tabs > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

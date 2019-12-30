@@ -7,7 +7,7 @@ import { SpeciesService } from '../species.service';
 import { Species } from '../../object-types/species';
 
 @Component({
-  selector: 'app-species-detail',
+  selector: 'app-species',
   templateUrl: './species.component.html',
   styleUrls: ['./species.component.css']
 })

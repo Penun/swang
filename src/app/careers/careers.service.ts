@@ -25,10 +25,10 @@ export class CareersService {
     private curCareerId: number;
     private curSpecId: number;
 
-    setCurCareerId(id: number): void { this.curCareerId = id; }
-    getCurCareerId(): number { return this.curCareerId; }
-    setCurSpecId(id: number): void { this.curSpecId = id; }
-    getCurSpecId(): number { return this.curSpecId; }
+    public setCurCareerId(id: number): void { this.curCareerId = id; }
+    public getCurCareerId(): number { return this.curCareerId; }
+    public setCurSpecId(id: number): void { this.curSpecId = id; }
+    public getCurSpecId(): number { return this.curSpecId; }
 
     constructor(
         private unit: UnitService,
@@ -42,7 +42,7 @@ export class CareersService {
         this.curSpecId = 0;
     }
 
-    getCareers(): Observable<Career[]> {
+    public getCareers(): Observable<Career[]> {
         this.unit.log("Career Serv :: Careers Began");
         if (this.careers$ === null){
             this.careers$ = this.http.get<Career[]>(this.careersUrl).pipe(
@@ -53,21 +53,21 @@ export class CareersService {
         return this.careers$;
     }
 
-    getCareer(id: number): Observable<Career> {
+    public getCareer(id: number): Observable<Career> {
         this.unit.log("Career Serv :: CarrerID Began");
         return this.getCareers().pipe(
             map((careers: Career[]) => careers.find(care => care.id === id))
         );
     }
 
-    getCurCareer(): Observable<Career> {
+    public getCurCareer(): Observable<Career> {
         if (this.curCareerId > 0){
             return this.getCareer(this.curCareerId);
         }
         return null;
     }
 
-    getSpecializations(id: number): Observable<Specialization[]> {
+    public getSpecializations(id: number): Observable<Specialization[]> {
         this.unit.log("Career Serv :: Specializations Began");
         return this.http.post<Specialization[]>(this.specializationsUrl, {id: id}, httpOptions).pipe(
             tap(_ => this.unit.log("Career Spec Serv :: Spec Gotten")),
@@ -75,7 +75,7 @@ export class CareersService {
         );
     }
 
-    getSpecialization(id: number): Observable<Specialization> {
+    public getSpecialization(id: number): Observable<Specialization> {
         this.unit.log("Career Serv :: Specialization Id Began");
         if (this.curCareerId > 0) {
             return this.getSpecializations(this.curCareerId).pipe(
@@ -85,7 +85,7 @@ export class CareersService {
         return null;
     }
 
-    getSpecTalents(id: number): Observable<Talent[]> {
+    public getSpecTalents(id: number): Observable<Talent[]> {
         this.unit.log("Career Serv :: Spec Talents Began");
         return this.http.post<Talent[]>(this.talentsUrl, {id: id}, httpOptions).pipe(
             tap(_ => this.unit.log("Career Spec Serv :: Talent Gotten")),
@@ -93,7 +93,7 @@ export class CareersService {
         );
     }
 
-    getTalent(id: number): Observable<Talent> {
+    public getTalent(id: number): Observable<Talent> {
         this.unit.log("Career Serv :: Talent Began");
         if (this.curSpecId > 0) {
             return this.getSpecTalents(this.curSpecId).pipe(
