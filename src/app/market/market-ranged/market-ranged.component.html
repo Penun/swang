@@ -1,9 +1,9 @@
-<div class="itemBase">
+<div *ngIf="!curRange" class="itemBase fade_in">
     <div *ngIf="light.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Ranged (Light)</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let weap of light" class="itemTable clickable margs">
+            <span *ngFor="let weap of light" class="itemTable clickable margs" (click)="setCurRange(weap)">
                 <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
             </span>
         </span>
@@ -12,7 +12,7 @@
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Ranged (Heavy)</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let weap of heavy" class="itemTable clickable margs">
+            <span *ngFor="let weap of heavy" class="itemTable clickable margs" (click)="setCurRange(weap)">
                 <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
             </span>
         </span>
@@ -21,12 +21,72 @@
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Gunnery</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let weap of gunn" class="itemTable clickable margs">
+            <span *ngFor="let weap of gunn" class="itemTable clickable margs" (click)="setCurRange(weap)">
                 <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
             </span>
         </span>
     </div>
-    <div *ngIf="light.length <= 0 && heavy.length <= 0 && gunn.length <= 0" class="itemTable sw_back_s itemTabBase">
+    <div *ngIf="mach.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Mechanics</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let weap of mach" class="itemTable clickable margs" (click)="setCurRange(weap)">
+                <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="light.length <= 0 && heavy.length <= 0 && gunn.length <= 0 && mach.length <= 0" class="itemTable sw_back_s itemTabBase">
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">No Ranged Found</span>
     </div>
+</div>
+<div *ngIf="curRange" class="fade_in sw_back_op det_back">
+    <div class="det_head">
+        <span class="alCenter th_head th_name headerColor"><b>{{curRange.model}}</b></span>
+        <button type="button" class="closeButton" (click)="clearCurRange()">X</button>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Weapon Type:</b></span>
+        <span>{{curRange.weapon.sub_type}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Weapon:</b></span>
+        <span>{{curRange.weapon.name}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Skill:</b></span>
+        <span>{{curRange.weapon.skill.name}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Damage:</b></span>
+        <span><span *ngIf="curRange.weapon.damage_add">+</span><span *ngIf="curRange.weapon.damage_sub">-</span>{{curRange.weapon.damage}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Critical:</b></span>
+        <span>{{curRange.weapon.critical}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Range:</b></span>
+        <span>{{curRange.weapon.range}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Encumbrance:</b></span>
+        <span>{{curRange.weapon.encumbrance}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Hard Points:</b></span>
+        <span>{{curRange.weapon.hard_points}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Price:</b></span>
+        <span>{{curRange.weapon.price}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Rarity:</b></span>
+        <span>{{curRange.weapon.rarity}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Special:</b></span>
+        <span>{{curRange.weapon.special}}</span>
+    </div>
+    <div [innerHtml]="curRange.weapon.description" class="itemDesc"></div>
 </div>

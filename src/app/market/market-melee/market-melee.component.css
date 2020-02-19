@@ -20,7 +20,7 @@
     margin-top: 2vh;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    flex-basis: 45vw;
+    flex-basis: 30vw;
     flex-grow: 1;
     height: min-content;
     max-height: 75vh;
@@ -58,4 +58,40 @@
 .alignLeft {
     text-align: left;
     margin-left: 2vw;
+}
+
+.det_back {
+    padding: 1vh 1.5vw;
+    display: grid;
+    grid-template-rows: 5vh repeat(11, 3vh) 1fr;
+    grid-row-gap: 1vh;
+}
+
+.det_head {
+    display: grid;
+    grid-template-columns: 95% 1fr;
+    grid-column-gap: 1vw;
+    align-content: center;
+}
+
+.det_head > button {
+    margin: 0;
+}
+
+.det_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    font-size: 1.5em;
+}
+
+.det_label {
+    margin-right: 1vw;
+    flex-basis: 15vw;
+}
+
+.itemDesc {
+    padding: 1vh 1vw;
+    font-size: 1.4em;
 }

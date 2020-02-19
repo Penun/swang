@@ -15,6 +15,7 @@ export class MarketAttachmentComponent implements OnInit {
     private weapons: AttachmentModel[];
     private armor: AttachmentModel[];
     private lightsabers: AttachmentModel[];
+    private curAtt: AttachmentModel;
 
     constructor(
         private unit: UnitService,
@@ -47,5 +48,14 @@ export class MarketAttachmentComponent implements OnInit {
             }
         );
         this.marketServ.attachBroadcast();
+        this.curAtt = null;
+    }
+
+    public setCurAtt(att: AttachmentModel): void {
+        this.curAtt = att;
+    }
+
+    public clearCurAtt(): void {
+        this.curAtt = null;
     }
 }

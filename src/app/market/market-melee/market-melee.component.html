@@ -1,9 +1,9 @@
-<div class="itemBase">
+<div *ngIf="!curMelee" class="itemBase fade_in">
     <div *ngIf="brawl.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Brawl</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let weap of brawl" class="itemTable clickable margs">
+            <span *ngFor="let weap of brawl" class="itemTable clickable margs" (click)="setCurMelee(weap)">
                 <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
             </span>
         </span>
@@ -12,12 +12,72 @@
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Melee</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let weap of melee" class="itemTable clickable margs">
+            <span *ngFor="let weap of melee" class="itemTable clickable margs" (click)="setCurMelee(weap)">
                 <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
             </span>
         </span>
     </div>
-    <div *ngIf="brawl.length <= 0 && melee.length <= 0" class="itemTable sw_back_s itemTabBase">
+    <div *ngIf="light.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
+        <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Lightsaber</span>
+        <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
+        <span class="itemSpan itemRowContainer">
+            <span *ngFor="let weap of light" class="itemTable clickable margs" (click)="setCurMelee(weap)">
+                <span class="gridCol alignLeft">{{weap.model}}</span><span class="gridCol2">{{weap.weapon.price}}</span>
+            </span>
+        </span>
+    </div>
+    <div *ngIf="brawl.length <= 0 && melee.length <= 0 && light.length <= 0" class="itemTable sw_back_s itemTabBase">
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">No Melee Found</span>
     </div>
+</div>
+<div *ngIf="curMelee" class="fade_in sw_back_op det_back">
+    <div class="det_head">
+        <span class="alCenter th_head th_name headerColor"><b>{{curMelee.model}}</b></span>
+        <button type="button" class="closeButton" (click)="clearCurMelee()">X</button>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Type:</b></span>
+        <span>{{curMelee.weapon.sub_type}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Weapon:</b></span>
+        <span>{{curMelee.weapon.name}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Skill:</b></span>
+        <span>{{curMelee.weapon.skill.name}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Damage:</b></span>
+        <span><span *ngIf="curMelee.weapon.damage_add">+</span><span *ngIf="curMelee.weapon.damage_sub">-</span>{{curMelee.weapon.damage}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Critical:</b></span>
+        <span>{{curMelee.weapon.critical}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Range:</b></span>
+        <span>{{curMelee.weapon.range}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Encumbrance:</b></span>
+        <span>{{curMelee.weapon.encumbrance}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Hard Points:</b></span>
+        <span>{{curMelee.weapon.hard_points}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Price:</b></span>
+        <span>{{curMelee.weapon.price}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Rarity:</b></span>
+        <span>{{curMelee.weapon.rarity}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Special:</b></span>
+        <span>{{curMelee.weapon.special}}</span>
+    </div>
+    <div [innerHtml]="curMelee.weapon.description" class="itemDesc"></div>
 </div>

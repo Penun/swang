@@ -13,6 +13,7 @@ import { ArmorModel } from '../../object-types/armor';
 })
 export class MarketArmorComponent implements OnInit {
     private armor: ArmorModel[];
+    private curArm: ArmorModel;
 
     constructor(
         private unit: UnitService,
@@ -24,5 +25,14 @@ export class MarketArmorComponent implements OnInit {
         this.marketServ.getArmorMarket()
             .subscribe(arms => this.armor = arms);
         this.marketServ.armorBroadcast();
+        this.curArm = null;
+    }
+
+    public setCurArm(arm: ArmorModel): void {
+        this.curArm = arm;
+    }
+
+    public clearCurArm(): void {
+        this.curArm = null;
     }
 }

@@ -1,12 +1,47 @@
-<div class="armorBase">
+<div *ngIf="!curArm" class="armorBase fade_in">
     <div *ngIf="armor.length > 0" class="armorTable armorMainTable sw_back_s armTabBase">
         <span class="alCenter th_head headerColor th_name armorSpan th_head_mod pads">Armor</span>
         <span class="alCenter armorSpan armorTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
-        <span *ngFor="let arm of armor" class="armorSpan armorTable clickable margs">
+        <span *ngFor="let arm of armor" class="armorSpan armorTable clickable margs" (click)="setCurArm(arm)">
             <span class="gridCol alignLeft">{{arm.model}}</span><span class="gridCol2">{{arm.armor.price}}</span>
         </span>
     </div>
     <div *ngIf="armor.length <= 0" class="armorTable sw_back_s armTabBase">
         <span class="alCenter th_head headerColor th_name armorSpan th_head_mod pads">No Armor Found</span>
     </div>
+</div>
+<div *ngIf="curArm" class="fade_in sw_back_op det_back">
+    <div class="det_head">
+        <span class="alCenter th_head th_name headerColor"><b>{{curArm.model}}</b></span>
+        <button type="button" class="closeButton" (click)="clearCurArm()">X</button>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Armor Type:</b></span>
+        <span>{{curArm.armor.type}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Defense:</b></span>
+        <span>{{curArm.armor.defense}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Soak:</b></span>
+        <span>{{curArm.armor.soak}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Price:</b></span>
+        <span>{{curArm.armor.price}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Encumbrance:</b></span>
+        <span>{{curArm.armor.encumbrance}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Hard Points:</b></span>
+        <span>{{curArm.armor.hard_points}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Rarity:</b></span>
+        <span>{{curArm.armor.rarity}}</span>
+    </div>
+    <div [innerHtml]="curArm.armor.description" class="itemDesc"></div>
 </div>

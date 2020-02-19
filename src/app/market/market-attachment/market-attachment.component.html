@@ -1,9 +1,9 @@
-<div class="itemBase">
+<div *ngIf="!curAtt" class="itemBase fade_in">
     <div *ngIf="weapons.length > 0" class="itemTable itemMainTable sw_back_s itemTabBase">
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Weapon Attachments</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let att of weapons" class="itemTable clickable margs">
+            <span *ngFor="let att of weapons" class="itemTable clickable margs" (click)="setCurAtt(att)">
                 <span class="gridCol alignLeft">{{att.model}}</span><span class="gridCol2">{{att.attachment.price }}</span>
             </span>
         </span>
@@ -12,7 +12,7 @@
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Armor Attachments</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let att of armor" class="itemTable clickable margs">
+            <span *ngFor="let att of armor" class="itemTable clickable margs" (click)="setCurAtt(att)">
                 <span class="gridCol alignLeft">{{att.model}}</span><span class="gridCol2">{{att.attachment.price }}</span>
             </span>
         </span>
@@ -21,12 +21,50 @@
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">Lightsaber Attachments</span>
         <span class="alCenter itemSpan itemTable th_head th_sub_name headerColor th_head_mod pads"><span class="gridCol">Type</span><span class="gridCol2">Price</span></span>
         <span class="itemSpan itemRowContainer">
-            <span *ngFor="let att of lightsabers" class="itemTable clickable margs">
+            <span *ngFor="let att of lightsabers" class="itemTable clickable margs" (click)="setCurAtt(att)">
                 <span class="gridCol alignLeft">{{att.model}}</span><span class="gridCol2">{{att.attachment.price }}</span>
             </span>
         </span>
     </div>
     <div *ngIf="weapons.length <= 0 && armor.length <= 0 && lightsabers.length <= 0" class="itemTable sw_back_s itemTabBase">
         <span class="alCenter th_head headerColor th_name itemSpan th_head_mod pads">No Attachments Found</span>
+    </div>
+</div>
+<div *ngIf="curAtt" class="fade_in sw_back_op det_back">
+    <div class="det_head">
+        <span class="alCenter th_head th_name headerColor"><b>{{curAtt.model}}</b></span>
+        <button type="button" class="closeButton" (click)="clearCurAtt()">X</button>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Attachment Type:</b></span>
+        <span>{{curAtt.attachment.name}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Price:</b></span>
+        <span>{{curAtt.attachment.price}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Encumbrance:</b></span>
+        <span>{{curAtt.attachment.encumbrance}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>HP Required:</b></span>
+        <span>{{curAtt.attachment.hp_required}}</span>
+    </div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Rarity:</b></span>
+        <span>{{curAtt.attachment.rarity}}</span>
+    </div>
+    <div [innerHtml]="curAtt.attachment.description" class="itemDesc"></div>
+    <div class="det_row">
+        <span class="headerColor th_head det_label"><b>Base Modifiers:</b></span>
+        <span [innerHtml]="curAtt.attachment.base_mod"></span>
+    </div>
+    <div *ngIf="curAtt.modification_options.length > 0" class="det_row mod_opts">
+        <span *ngFor="let opt of curAtt.modification_options">
+            <span class="headerColor th_head det_label"><b>Modifier Option:</b></span>
+            <span>{{opt.option}}</span>
+            <span [innerHtml]="opt.description"></span>
+        </span>
     </div>
 </div>

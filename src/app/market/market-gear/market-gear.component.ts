@@ -26,6 +26,7 @@ export class MarketGearComponent implements OnInit {
     private construction: GearModel[];
     private remotes: GearModel[];
     private itemless: boolean;
+    private curGear: GearModel;
 
     constructor(
         private unit: UnitService,
@@ -112,5 +113,14 @@ export class MarketGearComponent implements OnInit {
             }
         );
         this.marketServ.gearBroadcast();
+        this.curGear = null;
+    }
+
+    public setCurGear(gear: GearModel): void {
+        this.curGear = gear;
+    }
+
+    public clearCurGear(): void {
+        this.curGear = null;
     }
 }
