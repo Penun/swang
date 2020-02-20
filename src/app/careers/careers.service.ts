@@ -19,9 +19,11 @@ const httpOptions = {
 })
 export class CareersService {
     private careersUrl: string;
+    private careerUrl: string;
     private specializationsUrl: string;
+    private specializationUrl: string;
     private talentsUrl: string;
-    private careers$: Observable<Career[]>;
+    private talentUrl: string;
     private curCareerId: number;
     private curSpecId: number;
 
@@ -34,29 +36,29 @@ export class CareersService {
         private unit: UnitService,
         private http: HttpClient
     ) {
-        this.careersUrl = '/careers/list';
-        this.specializationsUrl = '/careers/specializations';
-        this.talentsUrl = 'specializations/talents';
-        this.careers$ = null;
+        this.careersUrl = '/index.php/careers/list';
+        this.careerUrl = '/index.php/career/';
+        this.specializationsUrl = '/index.php/careers/specializations';
+        this.specializationUrl = '/index.php/careers/specialization';
+        this.talentsUrl = '/index.php/specializations/talents';
+        this.talentUrl = '/index.php/specializations/talent';
         this.curCareerId = 0;
         this.curSpecId = 0;
     }
 
     public getCareers(): Observable<Career[]> {
         this.unit.log("Career Serv :: Careers Began");
-        if (this.careers$ === null){
-            this.careers$ = this.http.get<Career[]>(this.careersUrl).pipe(
-                tap(_ => this.unit.log('Career Serv :: Careers Gotten')),
-                catchError(this.handleError('getCareers', []))
-            );
-        }
-        return this.careers$;
+        return this.http.get<Career[]>(this.careersUrl).pipe(
+            tap(_ => this.unit.log('Career Serv :: Careers Gotten')),
+            catchError(this.handleError('getCareers', []))
+        );
     }
 
     public getCareer(id: number): Observable<Career> {
-        this.unit.log("Career Serv :: CarrerID Began");
-        return this.getCareers().pipe(
-            map((careers: Career[]) => careers.find(care => care.id === id))
+        this.unit.log("Career Serv :: CarrerID Began :: " + id);
+        return this.http.post<Career>(this.careerUrl, {id: id}, httpOptions).pipe(
+            tap(_ => this.unit.log('Career Serv :: CareerID Gotten')),
+            catchError(this.handleError('getCareer', null))
         );
     }
 
@@ -78,8 +80,9 @@ export class CareersService {
     public getSpecialization(id: number): Observable<Specialization> {
         this.unit.log("Career Serv :: Specialization Id Began");
         if (this.curCareerId > 0) {
-            return this.getSpecializations(this.curCareerId).pipe(
-                map((specials: Specialization[]) => specials.find(spec => spec.id === id))
+            return this.http.post<Specialization>(this.specializationUrl, {id: id}, httpOptions).pipe(
+                tap(_ => this.unit.log('Career Serv :: Specialization Id Gotten')),
+                catchError(this.handleError('getSpecialization', null))
             );
         }
         return null;
@@ -96,8 +99,9 @@ export class CareersService {
     public getTalent(id: number): Observable<Talent> {
         this.unit.log("Career Serv :: Talent Began");
         if (this.curSpecId > 0) {
-            return this.getSpecTalents(this.curSpecId).pipe(
-                map((talents: Talent[]) => talents.find(tale => tale.id === id))
+            return this.http.post<Talent>(this.talentUrl, {id: id}, httpOptions).pipe(
+                tap(_ => this.unit.log('Career Serv :: Talent Id Gotten')),
+                catchError(this.handleError('getTalent', null))
             );
         }
         return null;

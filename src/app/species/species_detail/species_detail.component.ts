@@ -35,8 +35,9 @@ export class SpeciesDetailComponent implements OnInit {
         id = map.get('id');
         this.specServ.getSpeciesId(+id)
             .subscribe(specs => this.species = specs, null, () => {
-                if (this.species.id === null || this.species.name === ""){
-                    this.router.navigate(['/species']);
+                this.unit.log("ID:"+this.species.id);
+                if (typeof(this.species) === 'undefined' || this.species.id === null || this.species.name === ""){
+                    this.router.navigate(['/index.php/species']);
                 } else {
                     this.specServ.getSpecAttr(+id)
                         .subscribe(attrs => this.attrs = attrs);

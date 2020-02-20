@@ -25,6 +25,8 @@ export class SpeciesListComponent implements OnInit {
         this.unit.log("Spec List Comp :: Init");
         this.specServ.getSpecies()
             .subscribe(species => this.species = species);
+        this.specServ.speciesBroadcast();
+        this.curSpec = null;
     }
 
     sortSpecies(varName: string): void {

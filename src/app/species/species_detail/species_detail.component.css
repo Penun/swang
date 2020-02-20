@@ -19,7 +19,7 @@ img.detail_img {
 }
 
 .characterBlock {
-	font-size: 1.3em;
+	font-size: 2vmin;
 	display: grid;
 	grid-template-rows: auto auto;
 	grid-template-columns: 3vw auto 3vw;
@@ -35,7 +35,7 @@ img.detail_img {
 
 .tp_midRow {
 	padding-left: 3vw;
-	font-size: 1.35em;
+	font-size: 2vmin;
 	display: flex;
 	flex-flow: row wrap;
 }
@@ -51,7 +51,7 @@ img.detail_img {
 }
 
 .attrib_desc {
-	font-size: 1.75em;
+	font-size: 2.5vmin;
 	word-wrap: break-word;
 	text-align: left;
 }

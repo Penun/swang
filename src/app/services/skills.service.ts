@@ -25,9 +25,9 @@ export class SkillsService {
         private unit: UnitService,
         private http: HttpClient
     ) {
-        this.skillsUrl = '/skills';
-        this.carSkillUrl = '/careers/skills';
-        this.specSkillUrl = '/specializations/skills';
+        this.skillsUrl = '/index.php/skills';
+        this.carSkillUrl = '/index.php/careers/skills';
+        this.specSkillUrl = '/index.php/specializations/skills';
     }
 
     getSkills(): Observable<Skill[]> {

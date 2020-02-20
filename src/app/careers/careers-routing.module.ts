@@ -13,7 +13,7 @@ import { CareersSpecTalentComponent } from './careers-spec-talent/careers-spec-t
 
 const routes: Routes = [
     {
-        path: 'careers',
+        path: 'index.php/careers',
         component: CareersComponent,
         children: [
             {

@@ -8,7 +8,7 @@ import { SpeciesDetailComponent } from './species_detail/species_detail.componen
 
 const routes: Routes = [
     {
-        path: 'species',
+        path: 'index.php/species',
         component: SpeciesComponent,
         children: [
             { path: '', component: SpeciesListComponent },

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, Subject, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { UnitService } from '../unit.service';
 
@@ -21,27 +21,39 @@ export class SpeciesService {
     private speciesIdUrl: string;
     private specAttrUrl: string;
 
+    private speciesSource: Subject<Species[]>;
     private obsSpecies: Observable<Species[]>;
+    private speciesFetched: Species[];
+
+    public getSpecies(): Observable<Species[]> { return this.obsSpecies; }
 
     constructor(
         private unit: UnitService,
         private http: HttpClient
     ) {
-        this.speciesUrl = '/species/list';
-        this.speciesIdUrl = '/species';
-        this.specAttrUrl = '/species/attributes';
-        this.obsSpecies = null;
+        this.speciesUrl = '/index.php/species/list';
+        this.speciesIdUrl = '/index.php/species';
+        this.specAttrUrl = '/index.php/species/attributes';
+        this.speciesSource = new Subject<Species[]>();
+        this.obsSpecies = this.speciesSource.asObservable();
+        this.fetchSpecies();
     }
 
-    getSpecies(): Observable<Species[]> {
+    public fetchSpecies(): void {
         this.unit.log("Spec Serv :: Species Began");
-        if (this.obsSpecies === null){
-            this.obsSpecies = this.http.get<Species[]>(this.speciesUrl).pipe(
-                tap(_ => this.unit.log('Spec Serv :: Species Gotten')),
-                catchError(this.handleError('getSpecies', []))
-            );
-        }
-        return this.obsSpecies;
+        this.http.get<Species[]>(this.speciesUrl).pipe(
+            tap(_ => this.unit.log('Spec Serv :: Species Gotten')),
+            catchError(this.handleError('getSpecies', [])))
+            .subscribe(specs => {
+                this.speciesFetched = specs;
+                this.speciesSource.next(specs);
+            }
+        );
+    }
+
+    public speciesBroadcast(): void {
+        this.unit.log("Species Serv Broadcast");
+        this.speciesSource.next(this.speciesFetched);
     }
 
     getSpeciesId(id: number | string): Observable<Species> {

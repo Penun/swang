@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CharactersComponent } from './characters/characters.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'species', pathMatch: "full" },
+    { path: '', redirectTo: 'index.php/species', pathMatch: "full" },
+    { path: 'index.php', redirectTo: 'index.php/species', pathMatch: "full" },
     // { path: 'species', redirectTo: '', pathMatch: "full" },
     { path: 'characters', component: CharactersComponent }
 ];
